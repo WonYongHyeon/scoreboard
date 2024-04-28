@@ -22,7 +22,7 @@ export default function Scoreboard() {
   });
 
   const time = useRef(0);
-  const timerId = useRef(null);
+  const timerId = useRef("");
   const [isTime, setIsTime] = useState(true);
   const [timeNow, setTimeNow] = useState("전반");
 
@@ -134,16 +134,6 @@ export default function Scoreboard() {
     time.current = Number(inputTime.min) * 60 + Number(inputTime.sec);
   };
 
-  const onChangeColorPickerTeam1 = (color) => {
-    setTeam1Color(color.hex);
-  };
-  const onChangeColorPickerTeam2 = (color) => {
-    setTeam2Color(color.hex);
-  };
-  const onChangeColorPickerChromakey = (color) => {
-    setChromakeyColor(color.hex);
-  };
-
   const onClickFont1Color = () => {
     if (team1Font === "white") setTeam1Font("black");
     else setTeam1Font("white");
@@ -188,9 +178,9 @@ export default function Scoreboard() {
       team1Color={team1Color}
       team2Color={team2Color}
       chromakeyColor={chromakeyColor}
-      onChangeColorPickerTeam1={onChangeColorPickerTeam1}
-      onChangeColorPickerTeam2={onChangeColorPickerTeam2}
-      onChangeColorPickerChromakey={onChangeColorPickerChromakey}
+      setTeam1Color={setTeam1Color}
+      setTeam2Color={setTeam2Color}
+      setChromakeyColor={setChromakeyColor}
       team1Font={team1Font}
       team2Font={team2Font}
       onClickFont1Color={onClickFont1Color}

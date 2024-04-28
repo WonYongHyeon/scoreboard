@@ -1,4 +1,4 @@
-import { SketchPicker } from "react-color";
+import { HexColorPicker } from "react-colorful";
 import DropDown from "../dropdown/dropdown";
 import * as S from "./scoreboard.styles";
 import Image from "next/image";
@@ -58,26 +58,26 @@ export default function ScoreboardUI(props) {
         <S.BoardColorTeamWrapper>
           <S.BoardColorTeam>
             <S.BoardColorTeamTitle>Team1 보드 색상</S.BoardColorTeamTitle>
-            <SketchPicker
-              width="250px"
+            <HexColorPicker
+              style={{ width: "200px", height: "200px" }}
               color={props.team1Color}
-              onChange={props.onChangeColorPickerTeam1}
+              onChange={props.setTeam1Color}
             />
           </S.BoardColorTeam>
           <S.BoardColorTeam>
             <S.BoardColorTeamTitle>Team2 보드 색상</S.BoardColorTeamTitle>
-            <SketchPicker
-              width="250px"
+            <HexColorPicker
+              style={{ width: "200px", height: "200px" }}
               color={props.team2Color}
-              onChange={props.onChangeColorPickerTeam2}
+              onChange={props.setTeam2Color}
             />
           </S.BoardColorTeam>
           <S.BoardColorTeam>
             <S.BoardColorTeamTitle>크로마키 색상</S.BoardColorTeamTitle>
-            <SketchPicker
-              width="250px"
+            <HexColorPicker
+              style={{ width: "200px", height: "200px" }}
               color={props.chromakeyColor}
-              onChange={props.onChangeColorPickerChromakey}
+              onChange={props.setChromakeyColor}
             />
           </S.BoardColorTeam>
         </S.BoardColorTeamWrapper>
