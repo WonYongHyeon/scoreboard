@@ -105,3 +105,15 @@ a {
     color-scheme: dark;
   }
 }
+
+@font-face {
+  font-family: "Maple";
+  font-weight: 700;
+  src: url("./fonts/Maplestory.otf") format("otf");
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, Maple, sans-serif;
+}

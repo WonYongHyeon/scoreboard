@@ -33,7 +33,11 @@ export default function Scoreboard() {
   const [team1Font, setTeam1Font] = useState("black");
   const [team2Font, setTeam2Font] = useState("black");
 
+  const [timerButtonActive, setTimerButtonActive] = useState(true);
+
   const onClickTimerStart = () => {
+    if (!timerButtonActive) return;
+    setTimerButtonActive(false);
     timerId.current = setInterval(() => {
       time.current++;
       setMin(Math.floor(time.current / 60));
@@ -42,16 +46,15 @@ export default function Scoreboard() {
   };
 
   const onClickTimerPauseResume = () => {
+    setTimerButtonActive(true);
     clearInterval(timerId.current);
   };
 
   const onClickTeam1ListActive = () => {
     setIsTeam1List((env) => !env);
-    // setTeam1("");
   };
   const onClickTeam2ListActive = () => {
     setIsTeam2List((env) => !env);
-    // setTeam2("");
   };
 
   const onChangeTeam1 = (event) => {

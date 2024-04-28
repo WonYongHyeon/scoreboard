@@ -21,14 +21,14 @@ export default function ScoreboardUI(props) {
           <S.TeamBoardWrapper>
             <S.Team1board boardColor={props.team1Color}>
               {/* <S.ImageWrapper>
-              <Image
-                src="/liverpool.png"
-                alt="해블린"
-                width={60}
-                height={80}
-                priority
-              />
-            </S.ImageWrapper> */}
+                <Image
+                  src="/liverpool.png"
+                  alt="해블린"
+                  width={60}
+                  height={80}
+                  priority
+                />
+              </S.ImageWrapper> */}
               <S.TeamName fontColor={props.team1Font}>{props.team1}</S.TeamName>
               <S.Score fontColor={props.team1Font}>{props.team1Score}</S.Score>
             </S.Team1board>
@@ -36,14 +36,14 @@ export default function ScoreboardUI(props) {
               <S.Score fontColor={props.team2Font}>{props.team2Score}</S.Score>
               <S.TeamName fontColor={props.team2Font}>{props.team2}</S.TeamName>
               {/* <S.ImageWrapper>
-              <Image
-                src="/tot.png"
-                alt="토트넘"
-                width={80}
-                height={80}
-                priority
-              />
-            </S.ImageWrapper> */}
+                <Image
+                  src="/tot.png"
+                  alt="토트넘"
+                  width={80}
+                  height={80}
+                  priority
+                />
+              </S.ImageWrapper> */}
             </S.Team2board>
           </S.TeamBoardWrapper>
           {props.isTime ? (
