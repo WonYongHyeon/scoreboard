@@ -33,11 +33,6 @@ export default function Scoreboard() {
   const [team1Font, setTeam1Font] = useState("black");
   const [team2Font, setTeam2Font] = useState("black");
 
-  // the first half
-  // the second half
-  // the first half of overtime
-  // the second half of overtime
-
   const onClickTimerStart = () => {
     timerId.current = setInterval(() => {
       time.current++;
@@ -52,11 +47,11 @@ export default function Scoreboard() {
 
   const onClickTeam1ListActive = () => {
     setIsTeam1List((env) => !env);
-    setTeam1("");
+    // setTeam1("");
   };
   const onClickTeam2ListActive = () => {
     setIsTeam2List((env) => !env);
-    setTeam2("");
+    // setTeam2("");
   };
 
   const onChangeTeam1 = (event) => {

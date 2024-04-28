@@ -55,8 +55,8 @@ export default function ScoreboardUI(props) {
             <S.Timer>{props.timeNow}</S.Timer>
           )}
         </S.ScoreBoardWrapper>
-        <S.BoardColorTeamWrapper>
-          <S.BoardColorTeam>
+        {/* <S.BoardColorTeamWrapper> */}
+        {/* <S.BoardColorTeam>
             <S.BoardColorTeamTitle>Team1 보드 색상</S.BoardColorTeamTitle>
             <HexColorPicker
               style={{ width: "200px", height: "200px" }}
@@ -80,7 +80,7 @@ export default function ScoreboardUI(props) {
               onChange={props.setChromakeyColor}
             />
           </S.BoardColorTeam>
-        </S.BoardColorTeamWrapper>
+        </S.BoardColorTeamWrapper> */}
       </S.ScoreBoardAndColorPickerWrapper>
       <S.HandleBoxWrapper>
         <S.TeamHandleBoxWrapper>

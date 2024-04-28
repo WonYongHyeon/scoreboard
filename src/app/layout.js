@@ -7,9 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "해블린 스코어 보드",
   description: "그러합니다. 넹",
-  icons: {
-    icon: favicon,
-  },
+  icon: favicon,
 };
 
 export default function RootLayout({ children }) {

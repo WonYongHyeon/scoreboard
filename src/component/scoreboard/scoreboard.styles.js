@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const Body = styled.div`
   background-color: ${(props) => props.backColor};
-  /* background-color: gray; */
   height: 100vh;
   padding: 30px;
 `;
