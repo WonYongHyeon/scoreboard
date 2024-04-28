@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Body = styled.div`
-  background-color: gray;
+  background-color: ${(props) => props.backColor};
+  /* background-color: gray; */
   height: 100vh;
   padding: 30px;
 `;
@@ -14,7 +15,7 @@ export const ScoreBoardWrapper = styled.div`
   padding: 10px;
   width: 800px;
   height: 300px;
-  background-color: gray;
+  /* background-color: gray; */
   display: flex;
   flex-direction: column;
   justify-content: center;

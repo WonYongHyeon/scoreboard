@@ -25,12 +25,10 @@ export default function Scoreboard() {
   const timerId = useRef(null);
   const [isTime, setIsTime] = useState(true);
   const [timeNow, setTimeNow] = useState("전반");
-  const [timerActive, setTimerActive] = useState(false);
 
   const [team1Color, setTeam1Color] = useState("#ffffff");
   const [team2Color, setTeam2Color] = useState("#ff0000");
-  const [team1ColorActive, setTeam1ColorActive] = useState(false);
-  const [team2ColorActive, setTeam2ColorActive] = useState(false);
+  const [chromakeyColor, setChromakeyColor] = useState("#00ff00");
 
   const [team1Font, setTeam1Font] = useState("black");
   const [team2Font, setTeam2Font] = useState("black");
@@ -41,8 +39,6 @@ export default function Scoreboard() {
   // the second half of overtime
 
   const onClickTimerStart = () => {
-    setTimerActive(true);
-
     timerId.current = setInterval(() => {
       time.current++;
       setMin(Math.floor(time.current / 60));
@@ -51,7 +47,6 @@ export default function Scoreboard() {
   };
 
   const onClickTimerPauseResume = () => {
-    setTimerActive(false);
     clearInterval(timerId.current);
   };
 
@@ -123,11 +118,7 @@ export default function Scoreboard() {
   };
 
   const onChangeTimeSetting = (event) => {
-    console.log(event.target);
-    // const id = event.target.id;
-    // const value
     const { id, value } = event.target;
-    console.log(id, value);
 
     setInputTime({
       ...inputTime,
@@ -143,18 +134,14 @@ export default function Scoreboard() {
     time.current = Number(inputTime.min) * 60 + Number(inputTime.sec);
   };
 
-  const onClickTeam1ColorButton = () => {
-    setTeam1ColorActive(true);
-  };
-  const onClickTeam2ColorButton = () => {
-    setTeam2ColorActive(true);
-  };
-
   const onChangeColorPickerTeam1 = (color) => {
     setTeam1Color(color.hex);
   };
   const onChangeColorPickerTeam2 = (color) => {
     setTeam2Color(color.hex);
+  };
+  const onChangeColorPickerChromakey = (color) => {
+    setChromakeyColor(color.hex);
   };
 
   const onClickFont1Color = () => {
@@ -200,10 +187,10 @@ export default function Scoreboard() {
       onClickTimeSetting={onClickTimeSetting}
       team1Color={team1Color}
       team2Color={team2Color}
-      onClickTeam1ColorButton={onClickTeam1ColorButton}
-      onClickTeam2ColorButton={onClickTeam2ColorButton}
+      chromakeyColor={chromakeyColor}
       onChangeColorPickerTeam1={onChangeColorPickerTeam1}
       onChangeColorPickerTeam2={onChangeColorPickerTeam2}
+      onChangeColorPickerChromakey={onChangeColorPickerChromakey}
       team1Font={team1Font}
       team2Font={team2Font}
       onClickFont1Color={onClickFont1Color}

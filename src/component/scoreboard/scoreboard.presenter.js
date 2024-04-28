@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ScoreboardUI(props) {
   return (
-    <S.Body>
+    <S.Body backColor={props.chromakeyColor}>
       <S.ScoreBoardAndColorPickerWrapper>
         <S.ScoreBoardWrapper>
           <S.ScoreTitleWrapper>
@@ -70,6 +70,14 @@ export default function ScoreboardUI(props) {
               width="250px"
               color={props.team2Color}
               onChange={props.onChangeColorPickerTeam2}
+            />
+          </S.BoardColorTeam>
+          <S.BoardColorTeam>
+            <S.BoardColorTeamTitle>크로마키 색상</S.BoardColorTeamTitle>
+            <SketchPicker
+              width="250px"
+              color={props.chromakeyColor}
+              onChange={props.onChangeColorPickerChromakey}
             />
           </S.BoardColorTeam>
         </S.BoardColorTeamWrapper>
