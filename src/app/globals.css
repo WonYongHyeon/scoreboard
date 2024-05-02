@@ -109,11 +109,15 @@ a {
 @font-face {
   font-family: "Maple";
   font-weight: 700;
-  src: url("./fonts/Maplestory.otf") format("otf");
+  src: url("./fonts/Maplestory.otf") format("opentype");
 }
 
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, Maple, sans-serif;
+  font-family: Maple, sans-serif;
+}
+
+div {
+  font-family: Maple, sans-serif;
 }

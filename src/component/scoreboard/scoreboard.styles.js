@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
+import "../../app/font.css";
 
 export const Body = styled.div`
+  font-family: "maple-font";
   background-color: ${(props) => props.backColor};
   /* background-color: gray; */
   width: 1920px;
-  height: 1080px;
-  padding: 30px;
+  /* height: 900px; */
+  padding: 30px 30px 0 30px;
 `;
 export const ScoreBoardAndColorPickerWrapper = styled.div`
   display: flex;
@@ -316,7 +318,7 @@ export const BWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 900px;
-  height: 590px;
+  height: 490px;
 `;
 
 export const BTitleWrapper = styled.div`
@@ -344,8 +346,8 @@ export const BTitle = styled.div`
 
 export const BTeam1 = styled.div`
   width: 800px;
-  height: 200px;
-  border-radius: 100px 100px 0 100px;
+  height: 150px;
+  border-radius: 75px 75px 0 75px;
   display: flex;
   flex-direction: row;
   background-color: ${(props) => props.boardColor};
@@ -354,9 +356,9 @@ export const BTeam1 = styled.div`
 
 export const BTeam2 = styled.div`
   width: 800px;
-  height: 200px;
-  margin-left: 100px;
-  border-radius: 0 100px 100px 100px;
+  height: 150px;
+  margin-left: 75px;
+  border-radius: 0 75px 75px 75px;
   display: flex;
   flex-direction: row;
   background-color: ${(props) => props.boardColor};
@@ -364,9 +366,9 @@ export const BTeam2 = styled.div`
 `;
 
 export const BTeamLogeWrapper = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -374,19 +376,19 @@ export const BTeamLogeWrapper = styled.div`
 `;
 
 export const BTeamName = styled.div`
-  width: 450px;
-  height: 200px;
+  width: 500px;
+  height: 150px;
   font-size: 70px;
-  line-height: 200px;
+  line-height: 150px;
   text-align: center;
   font-weight: bold;
 `;
 
 export const BTeamScore = styled.div`
   width: 150px;
-  height: 200px;
+  height: 150px;
   font-size: 100px;
-  line-height: 200px;
+  line-height: 150px;
   font-weight: bold;
   text-align: center;
   text-align: center;

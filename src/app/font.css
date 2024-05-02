@@ -1,7 +1,7 @@
 @font-face {
   font-family: "maple-font";
   font-weight: bold;
-  src: url("/public/Maplestory.otf") format("otf");
+  src: url("/public/Maplestory.otf") format("opentype");
 }
 
 :root {
