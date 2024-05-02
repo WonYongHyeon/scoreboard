@@ -26,8 +26,8 @@ export default function ScoreboardUI(props) {
                 <Image
                   src={props.teamList[props.team1]["src"]}
                   alt={props.teamList[props.team1]}
-                  width={150}
-                  height={150}
+                  width={120}
+                  height={120}
                   priority
                 />
               )}
@@ -51,8 +51,8 @@ export default function ScoreboardUI(props) {
                 <Image
                   src={props.teamList[props.team2]["src"]}
                   alt={props.teamList[props.team2]}
-                  width={150}
-                  height={150}
+                  width={120}
+                  height={120}
                   priority
                 />
               )}
