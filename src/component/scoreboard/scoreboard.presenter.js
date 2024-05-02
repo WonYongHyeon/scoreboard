@@ -7,80 +7,66 @@ export default function ScoreboardUI(props) {
   return (
     <S.Body backColor={props.chromakeyColor}>
       <S.ScoreBoardAndColorPickerWrapper>
-        <S.ScoreBoardWrapper>
-          <S.ScoreTitleWrapper>
-            <Image
-              src="/haebelyn.png"
-              alt="해블린"
-              width={130}
-              height={130}
-              priority
-            />
-            <S.ScoreTitle>{props.title}</S.ScoreTitle>
-          </S.ScoreTitleWrapper>
-          <S.TeamBoardWrapper>
-            <S.Team1board boardColor={props.team1Color}>
-              {/* <S.ImageWrapper>
+        <S.BWrapper>
+          <S.BTitleWrapper>
+            <S.BTitleLogoWrapper>
+              <Image
+                src="/haebelyn.png"
+                alt="해블린"
+                width={120}
+                height={120}
+                priority
+              />
+            </S.BTitleLogoWrapper>
+            <S.BTitle>{props.title}</S.BTitle>
+          </S.BTitleWrapper>
+          <S.BTeam1 boardColor={props.team1Color} fontColor={props.team1Font}>
+            <S.BTeamLogeWrapper>
+              {Object.keys(props.teamList).indexOf(props.team1) === -1 || (
                 <Image
-                  src="/liverpool.png"
-                  alt="해블린"
-                  width={60}
-                  height={80}
+                  src={props.teamList[props.team1]["src"]}
+                  alt={props.teamList[props.team1]}
+                  width={150}
+                  height={150}
                   priority
                 />
-              </S.ImageWrapper> */}
-              <S.TeamName fontColor={props.team1Font}>{props.team1}</S.TeamName>
-              <S.Score fontColor={props.team1Font}>{props.team1Score}</S.Score>
-            </S.Team1board>
-            <S.Team2board boardColor={props.team2Color}>
-              <S.Score fontColor={props.team2Font}>{props.team2Score}</S.Score>
-              <S.TeamName fontColor={props.team2Font}>{props.team2}</S.TeamName>
-              {/* <S.ImageWrapper>
+              )}
+            </S.BTeamLogeWrapper>
+            <S.BTeamName fontColor={props.team1Font}>
+              {Object.keys(props.teamList).indexOf(props.teamInput) > -1
+                ? props.teamList[props.team1]["name"]
+                : props.team1}
+            </S.BTeamName>
+            <S.BTeamScore fontColor={props.team1Font}>
+              {props.team1Score}
+            </S.BTeamScore>
+          </S.BTeam1>
+          <S.BTeam2 boardColor={props.team2Color} fontColor={props.team2Font}>
+            <S.BTeamScore fontColor={props.team2Font}>
+              {props.team2Score}
+            </S.BTeamScore>
+            <S.BTeamName fontColor={props.team2Font}>{props.team2}</S.BTeamName>
+            <S.BTeamLogeWrapper>
+              {Object.keys(props.teamList).indexOf(props.team2) === -1 || (
                 <Image
-                  src="/tot.png"
-                  alt="토트넘"
-                  width={80}
-                  height={80}
+                  src={props.teamList[props.team2]["src"]}
+                  alt={props.teamList[props.team2]}
+                  width={150}
+                  height={150}
                   priority
                 />
-              </S.ImageWrapper> */}
-            </S.Team2board>
-          </S.TeamBoardWrapper>
+              )}
+            </S.BTeamLogeWrapper>
+          </S.BTeam2>
           {props.isTime ? (
-            <S.Timer>
+            <S.BTimer>
               {String(props.min).padStart(2, "0")} :{" "}
               {String(props.second).padStart(2, "0")}
-            </S.Timer>
+            </S.BTimer>
           ) : (
-            <S.Timer>{props.timeNow}</S.Timer>
+            <S.BTimer>{props.timeNow}</S.BTimer>
           )}
-        </S.ScoreBoardWrapper>
-        <S.BoardColorTeamWrapper>
-          <S.BoardColorTeam>
-            <S.BoardColorTeamTitle>Team1 보드 색상</S.BoardColorTeamTitle>
-            <HexColorPicker
-              style={{ width: "200px", height: "200px" }}
-              color={props.team1Color}
-              onChange={props.setTeam1Color}
-            />
-          </S.BoardColorTeam>
-          <S.BoardColorTeam>
-            <S.BoardColorTeamTitle>Team2 보드 색상</S.BoardColorTeamTitle>
-            <HexColorPicker
-              style={{ width: "200px", height: "200px" }}
-              color={props.team2Color}
-              onChange={props.setTeam2Color}
-            />
-          </S.BoardColorTeam>
-          <S.BoardColorTeam>
-            <S.BoardColorTeamTitle>크로마키 색상</S.BoardColorTeamTitle>
-            <HexColorPicker
-              style={{ width: "200px", height: "200px" }}
-              color={props.chromakeyColor}
-              onChange={props.setChromakeyColor}
-            />
-          </S.BoardColorTeam>
-        </S.BoardColorTeamWrapper>
+        </S.BWrapper>
       </S.ScoreBoardAndColorPickerWrapper>
       <S.HandleBoxWrapper>
         <S.TeamHandleBoxWrapper>
@@ -92,7 +78,14 @@ export default function ScoreboardUI(props) {
             {props.isTeam1List && (
               <DropDown
                 onClickTeamListActive={props.onClickTeam1ListActive}
+                setTeamColor={props.setTeam1Color}
+                setTeamFont={props.setTeam1Font}
                 setTeam={props.setTeam1}
+                teamList={props.teamList}
+                teamInfo="home"
+                setTeamCustomBackColorActive={
+                  props.setTeam1CustomBackColorActive
+                }
               />
             )}
             {props.team1 === "직접입력" && (
@@ -106,26 +99,48 @@ export default function ScoreboardUI(props) {
                 </S.TeamInputSubmit>
               </S.TeamInputWrapper>
             )}
-            <S.ScoreWrapper>
-              <S.ScoreBoxTitle>스코어</S.ScoreBoxTitle>
-              <S.ScoreBoxWrapper>
-                <S.ScoreBox onClick={() => props.onClickTeam1Score(-1)}>
-                  -
-                </S.ScoreBox>
-                <S.ScoreBox onClick={() => props.onClickTeam1Score(1)}>
-                  +
-                </S.ScoreBox>
-                {props.team1Font === "white" ? (
-                  <S.FontWhiteBlack onClick={props.onClickFont1Color}>
+            <S.TeamScoreCustomColorWrapper>
+              <S.ScoreWrapper>
+                <S.ScoreBoxTitle>스코어</S.ScoreBoxTitle>
+                <S.ScoreBoxWrapper>
+                  <S.ScoreBox onClick={() => props.onClickTeam1Score(-1)}>
+                    -
+                  </S.ScoreBox>
+                  <S.ScoreBox onClick={() => props.onClickTeam1Score(1)}>
+                    +
+                  </S.ScoreBox>
+                </S.ScoreBoxWrapper>
+              </S.ScoreWrapper>
+              <S.TeamCustomFontColorWrapper>
+                {props.team1CustomBackColorActive &&
+                  (props.team1Color === "#000000" ? (
+                    <S.CustomColorFontWhiteBlack
+                      onClick={props.onClickTeam1CustomColorChangeButton}
+                    >
+                      흰배경으로
+                    </S.CustomColorFontWhiteBlack>
+                  ) : (
+                    <S.CustomColorFontWhiteBlack
+                      onClick={props.onClickTeam1CustomColorChangeButton}
+                    >
+                      검은배경으로
+                    </S.CustomColorFontWhiteBlack>
+                  ))}
+                {props.team1Font === "#ffffff" ? (
+                  <S.CustomColorFontWhiteBlack
+                    onClick={props.onClickFont1Color}
+                  >
                     검은 폰트로
-                  </S.FontWhiteBlack>
+                  </S.CustomColorFontWhiteBlack>
                 ) : (
-                  <S.FontWhiteBlack onClick={props.onClickFont1Color}>
+                  <S.CustomColorFontWhiteBlack
+                    onClick={props.onClickFont1Color}
+                  >
                     흰 폰트로
-                  </S.FontWhiteBlack>
+                  </S.CustomColorFontWhiteBlack>
                 )}
-              </S.ScoreBoxWrapper>
-            </S.ScoreWrapper>
+              </S.TeamCustomFontColorWrapper>
+            </S.TeamScoreCustomColorWrapper>
           </S.HandleBox>
         </S.TeamHandleBoxWrapper>
         <S.TeamHandleBoxWrapper>
@@ -137,7 +152,14 @@ export default function ScoreboardUI(props) {
             {props.isTeam2List && (
               <DropDown
                 onClickTeamListActive={props.onClickTeam2ListActive}
+                setTeamColor={props.setTeam2Color}
+                setTeamFont={props.setTeam2Font}
                 setTeam={props.setTeam2}
+                teamList={props.teamList}
+                teamInfo="away"
+                setTeamCustomBackColorActive={
+                  props.setTeam2CustomBackColorActive
+                }
               />
             )}
             {props.team2 === "직접입력" && (
@@ -151,26 +173,48 @@ export default function ScoreboardUI(props) {
                 </S.TeamInputSubmit>
               </S.TeamInputWrapper>
             )}
-            <S.ScoreWrapper>
-              <S.ScoreBoxTitle>스코어</S.ScoreBoxTitle>
-              <S.ScoreBoxWrapper>
-                <S.ScoreBox onClick={() => props.onClickTeam2Score(-1)}>
-                  -
-                </S.ScoreBox>
-                <S.ScoreBox onClick={() => props.onClickTeam2Score(1)}>
-                  +
-                </S.ScoreBox>
-                {props.team2Font === "white" ? (
-                  <S.FontWhiteBlack onClick={props.onClickFont2Color}>
+            <S.TeamScoreCustomColorWrapper>
+              <S.ScoreWrapper>
+                <S.ScoreBoxTitle>스코어</S.ScoreBoxTitle>
+                <S.ScoreBoxWrapper>
+                  <S.ScoreBox onClick={() => props.onClickTeam2Score(-1)}>
+                    -
+                  </S.ScoreBox>
+                  <S.ScoreBox onClick={() => props.onClickTeam2Score(1)}>
+                    +
+                  </S.ScoreBox>
+                </S.ScoreBoxWrapper>
+              </S.ScoreWrapper>
+              <S.TeamCustomFontColorWrapper>
+                {props.team2CustomBackColorActive &&
+                  (props.team2Color === "#000000" ? (
+                    <S.CustomColorFontWhiteBlack
+                      onClick={props.onClickTeam2CustomColorChangeButton}
+                    >
+                      흰배경으로
+                    </S.CustomColorFontWhiteBlack>
+                  ) : (
+                    <S.CustomColorFontWhiteBlack
+                      onClick={props.onClickTeam2CustomColorChangeButton}
+                    >
+                      검은배경으로
+                    </S.CustomColorFontWhiteBlack>
+                  ))}
+                {props.team2Font === "#ffffff" ? (
+                  <S.CustomColorFontWhiteBlack
+                    onClick={props.onClickFont2Color}
+                  >
                     검은 폰트로
-                  </S.FontWhiteBlack>
+                  </S.CustomColorFontWhiteBlack>
                 ) : (
-                  <S.FontWhiteBlack onClick={props.onClickFont2Color}>
+                  <S.CustomColorFontWhiteBlack
+                    onClick={props.onClickFont2Color}
+                  >
                     흰 폰트로
-                  </S.FontWhiteBlack>
+                  </S.CustomColorFontWhiteBlack>
                 )}
-              </S.ScoreBoxWrapper>
-            </S.ScoreWrapper>
+              </S.TeamCustomFontColorWrapper>
+            </S.TeamScoreCustomColorWrapper>
           </S.HandleBox>
         </S.TeamHandleBoxWrapper>
         <S.TeamHandleBoxWrapper>
@@ -203,6 +247,7 @@ export default function ScoreboardUI(props) {
                   <S.TimeInput
                     id="min"
                     onChange={props.onChangeTimeSetting}
+                    placeholder="0"
                   ></S.TimeInput>
                 </S.TimeSettingInputWrapper>
                 <S.TimeSettingInputWrapper>
@@ -210,6 +255,7 @@ export default function ScoreboardUI(props) {
                   <S.TimeInput
                     id="sec"
                     onChange={props.onChangeTimeSetting}
+                    placeholder="0"
                   ></S.TimeInput>
                 </S.TimeSettingInputWrapper>
                 <S.TimeSettingButton onClick={props.onClickTimeSetting}>
@@ -236,6 +282,16 @@ export default function ScoreboardUI(props) {
                 value={props.title}
               ></S.MatchTitleInput>
             </S.MatchWrapper>
+          </S.HandleBox>
+        </S.TeamHandleBoxWrapper>
+        <S.TeamHandleBoxWrapper>
+          <S.HandleBoxTitle>크로마키 색상</S.HandleBoxTitle>
+          <S.HandleBox>
+            <HexColorPicker
+              style={{ width: "200px", height: "200px" }}
+              color={props.chromakeyColor}
+              onChange={props.setChromakeyColor}
+            />
           </S.HandleBox>
         </S.TeamHandleBoxWrapper>
       </S.HandleBoxWrapper>

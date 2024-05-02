@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 export const Body = styled.div`
   background-color: ${(props) => props.backColor};
   /* background-color: gray; */
-  height: 100vh;
+  width: 1920px;
+  height: 1080px;
   padding: 30px;
 `;
 export const ScoreBoardAndColorPickerWrapper = styled.div`
@@ -11,125 +12,10 @@ export const ScoreBoardAndColorPickerWrapper = styled.div`
   flex-direction: row;
 `;
 
-export const ScoreBoardWrapper = styled.div`
-  padding: 10px;
-  width: 800px;
-  height: 300px;
-  /* background-color: gray; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ScoreTitleWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: center;
-  align-items: end;
-`;
-
-export const ScoreTitle = styled.div`
-  font-family: var(--font-maple);
-  width: 400px;
-  height: 55px;
-  text-align: center;
-  line-height: 55px;
-  font-size: 22px;
-  font-weight: bold;
-  border-radius: 20px 20px 0 0;
-  background-color: white;
-  border-top: 3px solid black;
-  border-right: 3px solid black;
-  border-left: 3px solid black;
-`;
-
-export const TeamBoardWrapper = styled.div`
-  display: flex;
-`;
-
-export const Team1board = styled.div`
-  width: 350px;
-  height: 100px;
-  border-radius: 50px 0 0 50px;
-  background-color: ${(props) => props.boardColor};
-  line-height: 100px;
-  border-top: 3px solid black;
-  border-left: 3px solid black;
-  border-bottom: 3px solid black;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const Team2board = styled.div`
-  width: 350px;
-  height: 100px;
-  border-radius: 0 50px 50px 0;
-  background-color: ${(props) => props.boardColor};
-  line-height: 100px;
-  border-top: 3px solid black;
-  border-right: 3px solid black;
-  border-bottom: 3px solid black;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const ImageWrapper = styled.div`
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  background-color: white;
-  border: 3px solid black;
-`;
-
-export const TeamName = styled.p`
-  width: 300px;
-  font-size: 40px;
-  font-weight: bold;
-  padding: 0 5px;
-  text-align: center;
-  align-items: center;
-  color: ${(props) => props.fontColor};
-`;
-
-export const Score = styled.p`
-  width: 50px;
-  font-size: 50px;
-  font-weight: bold;
-  padding: 0 5px;
-  text-align: center;
-  align-items: center;
-  color: ${(props) => props.fontColor};
-`;
-
-export const Timer = styled.div`
-  width: 100px;
-  height: 40px;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 40px;
-  background-color: black;
-  border-radius: 0 0 10px 10px;
-  text-align: center;
-  border-left: 3px solid black;
-  border-right: 3px solid black;
-  border-bottom: 3px solid black;
-  color: white;
-`;
-
 export const TimerStartButton = styled.button`
   width: 100px;
   height: 40px;
   font-size: 30px;
-  /* margin: 30px 0; */
 `;
 
 export const HandleBoxWrapper = styled.div`
@@ -138,7 +24,6 @@ export const HandleBoxWrapper = styled.div`
   justify-content: space-between;
   background-color: black;
   padding: 30px;
-  width: 1500px;
   margin-top: 30px;
   border-radius: 20px;
 `;
@@ -150,13 +35,11 @@ export const TeamHandleBoxWrapper = styled.div`
 `;
 
 export const HandleBoxTitle = styled.div`
-  /* height: 40px; */
   font-size: 30px;
   border: 2px solid white;
   border-radius: 5px 5px 0 0;
   background-color: gray;
   padding: 10px 20px;
-  /* text-align: center; */
 `;
 
 export const HandleBox = styled.div`
@@ -363,6 +246,7 @@ export const BoardColorTeamWrapper = styled.div`
   border-radius: 20px;
   padding: 20px;
   gap: 20px;
+  height: 300px;
 `;
 export const BoardColorTeam = styled.div`
   display: flex;
@@ -378,7 +262,7 @@ export const BoardColorTeamTitle = styled.div`
   padding: 0 0 5px 0;
 `;
 
-export const FontWhiteBlack = styled.div`
+export const CustomColorFontWhiteBlack = styled.div`
   width: 100px;
   height: 50px;
   background-color: black;
@@ -426,4 +310,124 @@ export const MatchTitleSubmit = styled.div`
     background-color: white;
     color: black;
   }
+`;
+
+export const BWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  height: 590px;
+`;
+
+export const BTitleWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const BTitleLogoWrapper = styled.div`
+  margin-left: 100px;
+  width: 120px;
+  height: 120px;
+`;
+
+export const BTitle = styled.div`
+  width: 480px;
+  height: 70px;
+  font-size: 40px;
+  line-height: 70px;
+  font-weight: bold;
+  margin-top: 50px;
+  background-color: white;
+  text-align: center;
+  border-radius: 40px 40px 0 0;
+`;
+
+export const BTeam1 = styled.div`
+  width: 800px;
+  height: 200px;
+  border-radius: 100px 100px 0 100px;
+  display: flex;
+  flex-direction: row;
+  background-color: ${(props) => props.boardColor};
+  color: ${(props) => props.fontColor};
+`;
+
+export const BTeam2 = styled.div`
+  width: 800px;
+  height: 200px;
+  margin-left: 100px;
+  border-radius: 0 100px 100px 100px;
+  display: flex;
+  flex-direction: row;
+  background-color: ${(props) => props.boardColor};
+  color: ${(props) => props.fontColor};
+`;
+
+export const BTeamLogeWrapper = styled.div`
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BTeamName = styled.div`
+  width: 450px;
+  height: 200px;
+  font-size: 70px;
+  line-height: 200px;
+  text-align: center;
+  font-weight: bold;
+`;
+
+export const BTeamScore = styled.div`
+  width: 150px;
+  height: 200px;
+  font-size: 100px;
+  line-height: 200px;
+  font-weight: bold;
+  text-align: center;
+  text-align: center;
+`;
+
+export const BTimer = styled.div`
+  margin: auto;
+  width: 200px;
+  height: 70px;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 70px;
+  background-color: black;
+  border-radius: 0 0 30px 30px;
+  text-align: center;
+  color: white;
+`;
+
+export const SettingWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+`;
+
+// export const MatchSettingBox = styled.div`
+//   width: 300px;
+//   padding: 10px;
+//   /* background-color: gray; */
+//   /* border: 2px solid white; */
+//   display: flex;
+//   flex-direction: column;
+// `;
+
+export const TeamScoreCustomColorWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 128.23px;
+`;
+
+export const TeamCustomFontColorWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 `;
