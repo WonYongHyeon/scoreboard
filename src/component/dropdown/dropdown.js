@@ -5,6 +5,8 @@ export default function DropDown(props) {
     const team = event.target.innerText;
 
     if (team === "직접입력") {
+      props.setTeamCustomBackColorActive(true);
+      props.setTeamColorActive(false);
       if (props.teamInfo === "home") {
         props.setTeamColor("#ffffff");
         props.setTeamFont("#000000");
@@ -14,6 +16,7 @@ export default function DropDown(props) {
       }
     } else {
       props.setTeamCustomBackColorActive(false);
+      props.setTeamColorActive(true);
 
       if (props.teamInfo === "home") {
         props.setTeamColor(props.teamList[team]["home"]);

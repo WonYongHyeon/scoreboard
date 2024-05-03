@@ -7,142 +7,182 @@ const teamList = {
   노팅엄: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTE1/MDAxNzE0NjU5ODI5NDI3.-IcqnldClzNpTgB6jYwLUpK77qImR8dM_hKhRjfvxmUg.wRVSXT56ubRKV3PWaO-6bJL9n8RxZZo6bZ6Z7tERoJQg.PNG/%EB%85%B8%ED%8C%85%EC%97%84.png?type=w1600",
     home: "#cf1e2a",
+    homeFont: "#ffffff",
     away: "#90d5ea",
-    homeFont: "#000000",
     awayFont: "#000000",
+    third: "#334671",
+    thirdFont: "#ffffff",
   },
   뉴캐슬: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfODUg/MDAxNzE0NjU5ODI5NDM2.PuS_w4uqO6tBkXnQFIf9xPHgv-pOaxS51I1op0r6ekYg.QpAGsZ4MdN_qI_wJbJIBgA76cso18EoJBAjND2_2wJAg.PNG/%EB%89%B4%EC%BA%90%EC%8A%AC.png?type=w1600",
     home: "#393939",
-    away: "#19978f",
     homeFont: "#ffffff",
-    awayFont: "#000000",
+    away: "#19978f",
+    awayFont: "#ffffff",
+    third: "#033e70",
+    thirdFont: "#ffffff",
   },
   루턴타운: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMiAg/MDAxNzE0NjU5ODI5NDM1.qm4Rb9FKjdQ74ArRYnLYhFY7qer6V9V0PcjXH4a7tiMg.Ibku1uOqGs4rHUYX7b7Qq7v849L8-yfFksLVHTywVpwg.PNG/%EB%A3%A8%ED%84%B4%ED%83%80%EC%9A%B4.png?type=w1600",
     home: "#ff7900",
-    away: "#ffffff",
     homeFont: "#000000",
+    away: "#ffffff",
     awayFont: "#000000",
+    third: "#313555",
+    thirdFont: "#ffffff",
   },
   리버풀: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMiAg/MDAxNzE0NjU5ODI5NDM1.FuSG67yVuqIaWBtTX5_PTmgTirbRDPY8ClEOZ701TBIg.W5plEypS2rZPKGpRQLx9Zhe90znTEalcSDFudZ9lA_Ig.PNG/%EB%A6%AC%EB%B2%84%ED%92%80.png?type=w1600",
     home: "#d41e24",
+    homeFont: "#ffffff",
     away: "#16ac6c",
-    homeFont: "#000000",
     awayFont: "#000000",
+    third: "#a092cd",
+    thirdFont: "#ffffff",
   },
   맨시티: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTQg/MDAxNzE0NjU5ODI5NDM2.lKKSvhhU92I9QdlnITXIm7t61CxGMCCbCvBEfJQd1G0g.-XUyox8aIhfMj_yB5KgSlet_EFC2DhEHGn6vrmAZNwIg.PNG/%EB%A7%A8%EC%8B%9C%ED%8B%B0.png?type=w1600",
     home: "#98c5ea",
-    away: "#e7e7e7",
     homeFont: "#000000",
+    away: "#e7e7e7",
     awayFont: "#000000",
+    third: "#1e282c",
+    thirdFont: "#ffffff",
   },
   맨유: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjU3/MDAxNzE0NjU5ODI5NDM1.3-tUtxN4Iv9uufnbIG60HOAO45x7z_8W9jy-Oj42Iucg.4dfDvrB1YFyRJyBmcy79hDuKuKsLt1KR8loEkIYZfuwg.PNG/%EB%A7%A8%EC%9C%A0.png?type=w1600",
     home: "#da1f0d",
+    homeFont: "#ffffff",
     away: "#344f4e",
-    homeFont: "#000000",
     awayFont: "#ffffff",
+    third: "#ffffff",
+    thirdFont: "#000000",
   },
   번리: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfNDUg/MDAxNzE0NjYxMjYwODE2.Yh7ZbaR3E_2Q4BR5aEFcIyCjGlf_p9-SG-fVF9cF8pEg.BLhKaQ09yjl76irkUZunhS7K4KxJ9HlYcCPwHKZ49_Ug.PNG/%EB%B2%88%EB%A6%AC1.png?type=w1600",
     home: "#5f0d41",
-    away: "#dee16e",
     homeFont: "#ffffff",
+    away: "#dee16e",
     awayFont: "#000000",
+    third: "#3d4b66",
+    thirdFont: "#ffffff",
   },
   본머스: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjI0/MDAxNzE0NjU5ODI5NDMy.KovhqfQLFkB0FhCHBfjYxJditVb3TGeAjlkkKkxwflYg.acWa__2W-zeLNRygcd-u0_69kVO1cYLm3Du8y9mZXi8g.PNG/%EB%B3%B8%EB%A8%B8%EC%8A%A4.png?type=w1600",
     home: "#ff2600",
-    away: "#b7dbee",
     homeFont: "#000000",
+    away: "#b7dbee",
     awayFont: "#000000",
+    third: "#f2dc5c",
+    thirdFont: "#000000",
   },
   브라이튼: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjkz/MDAxNzE0NjU5ODI5NDM0.mpWx84-qKLeC59dJDriTEIEZEgR1EGvaeEFKws77W8kg.I9_MC5YIqxWtZBr3Aet53qkRcsOM5DLXwY8cVTKcTU0g.PNG/%EB%B8%8C%EB%9D%BC%EC%9D%B4%ED%84%B4.png?type=w1600",
     home: "#005daa",
-    away: "#02cf5d",
     homeFont: "#ffffff",
+    away: "#02cf5d",
     awayFont: "#000000",
+    third: "#fd5430",
+    thirdFont: "#000000",
   },
   브렌트포드: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfNyAg/MDAxNzE0NjU5ODI5NDM0.aDh9Q7S9JmixM35xZEjiSP9ULf1vbCCdzULWnynOuqAg.pgYbLx2LSae_sL0rRZfXi3U3izRs8RmYBN_hoOYMMdAg.PNG/%EB%B8%8C%EB%A0%8C%ED%8A%B8%ED%8D%BC%EB%93%9C.png?type=w1600",
     home: "#df323f",
+    homeFont: "#ffffff",
     away: "#9ec2e5",
-    homeFont: "#000000",
     awayFont: "#000000",
+    third: "#aac9d3",
+    thirdFont: "#000000",
   },
   셰필드: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfOTgg/MDAxNzE0NjU5ODI5NDM0.B70AoG8ucrpJVWQO16yfkKs4XN0chr1LagSL6VfIXx0g.mjx5OIvbPtpg9H-jIQ4xSfkCjFZS7CmEVxDDQjV3yY8g.PNG/%EC%85%B0%ED%95%84%EB%93%9C.png?type=w1600",
     home: "#b01600",
-    away: "#000000",
     homeFont: "#ffffff",
-    awayFont: "#ffffff",
+    away: "##c6c332",
+    awayFont: "#000000",
+    third: "#014a49",
+    thirdFont: "#ffffff",
   },
   아스날: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfOTMg/MDAxNzE0NjU5ODI5NDI1.vv_wfzjzyrL6sdWQwmZxdY3l2J_mt5xSuAdtln37fWIg.-Ll-eRgMrVf2pzScMQsJr5YpUr7qJLKqGbij7XWPL0gg.PNG/%EC%95%84%EC%8A%A4%EB%82%A0.png?type=w1600",
     home: "#c71c27",
+    homeFont: "#ffffff",
     away: "#d4fb33",
-    homeFont: "#000000",
     awayFont: "#000000",
+    third: "#0a575d",
+    thirdFont: "#ffffff",
   },
   아스톤빌라: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjg3/MDAxNzE0NjU5ODI5NDE2.AvUfs1LwPbAiJQC9yviPqIB7x5c0MLXze1eZ7ChMIFwg.ILu25CxFzFXVsvRYUAE4yX7_vlv5d5-f4xyM_q8Lokcg.PNG/%EC%95%A0%EC%8A%A4%ED%84%B4%EB%B9%8C%EB%9D%BC.png?type=w1600",
     home: "#660c34",
-    away: "#ffffff",
     homeFont: "#ffffff",
+    away: "#ffffff",
     awayFont: "#000000",
+    third: "#587d95",
+    thirdFont: "#ffffff",
   },
   에버튼: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTY0/MDAxNzE0NjU5ODI5NDM3.-N0hiwNrifbeYjHwAPD1OJF7NubNJLBeNXKhm8EMDygg.Te0-8061rCW6k-0-zIWGx-CdzRlokrjkPRH_Dd2XkPQg.PNG/%EC%97%90%EB%B2%84%ED%84%B4.png?type=w1600",
     home: "#0a4796",
-    away: "#e84a46",
     homeFont: "#ffffff",
+    away: "#e84a46",
     awayFont: "#000000",
+    third: "#a0a7a6",
+    thirdFont: "#000000",
   },
   울버햄튼: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTcw/MDAxNzE0NjU5ODI5NDM1.iBB-FAU-y8cH_TWYBiwu_6Dv6kXj7NHvMsVjdStudXYg.C-5b6sS1GcncSKN3jWpEnKhXW4x9fxjMuceaSOKNkuAg.PNG/%EC%9A%B8%EB%B2%84%ED%96%84%ED%8A%BC.png?type=w1600",
     home: "#fcb917",
-    away: "#1993ab",
     homeFont: "#000000",
+    away: "#1993ab",
     awayFont: "#000000",
+    third: "#dce5ed",
+    thirdFont: "#000000",
   },
   웨스트햄: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTM2/MDAxNzE0NjU5ODI5NDM1.WFTGF96iquEZgrVtQlY2xFrR41wiTZR57JRe1x7O95cg.T1MwQNtx6BlqK8s3YdP450EuZ-jFt0VSmCl5v4r6puIg.PNG/%EC%9B%A8%EC%8A%A4%ED%8A%B8%ED%96%84.png?type=w1600",
     home: "#7d2c3b",
-    away: "#ffffff",
     homeFont: "#ffffff",
+    away: "#ffffff",
     awayFont: "#000000",
+    third: "#0e4180",
+    thirdFont: "#ffffff",
   },
   첼시: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjY5/MDAxNzE0NjU5ODI5NDM1.06hp-sjqCS_nPZrA3y5gs9krCiISGkjm0riZ4tIM0Ecg.XGKujvSSAh20JA8o3zQPN2XxSRdwTtd91bHIIobOf_0g.PNG/%EC%B2%BC%EC%8B%9C.png?type=w1600",
     home: "#034694",
-    away: "#1f2d41",
     homeFont: "#ffffff",
+    away: "#1f2d41",
     awayFont: "#ffffff",
+    third: "#b2e5c7",
+    thirdFont: "#000000",
   },
   "C.팰리스": {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjM3/MDAxNzE0NjU5ODI5NDM1.3eGEz-vEo7gnCWOwrpX8xISRA8mHBVN9y-d0OeTaeMIg.XpHFJQIukxmiL-KPoZQRNK2tiLatK48dkZmCf09D56gg.PNG/%ED%81%AC%ED%8C%B0.png?type=w1600",
     home: "#1a458f",
-    away: "#ffffff",
     homeFont: "#ffffff",
+    away: "#ffffff",
     awayFont: "#000000",
+    third: "#1a191e",
+    thirdFont: "#ffffff",
   },
   토트넘: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjI4/MDAxNzE0NjYwNjUzMDcy.pa99JBMIzo7qPn-IEsRJxAPAaxrHylEztuTnqSFS9Xog.Q8NU1DYJoAScrnYEBqfiUXN9punj_4v9yuuaWPi3npcg.PNG/%ED%86%A0%ED%8A%B8%EB%84%98.png?type=w1600",
     home: "#ffffff",
-    away: "#242b40",
     homeFont: "#000000",
+    away: "#242b40",
     awayFont: "#ffffff",
+    third: "#af8578",
+    thirdFont: "#000000",
   },
   풀럼: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjI2/MDAxNzE0NjU5ODI5NDIy.E3DtgJHDYC7iIAF2UkeaMExmBywZNbFQ2a1azR5Puwwg.LIcWTThtLA5asFIAupsGIhLZEE-GJHtVD7op71O15asg.PNG/%ED%92%80%EB%9F%BC.png?type=w1600",
     home: "#ffffff",
-    away: "#ed2f7b",
     homeFont: "#000000",
+    away: "#ed2f7b",
     awayFont: "#000000",
+    third: "#4d434c",
+    thirdFont: "#ffffff",
   },
 };
 
@@ -152,6 +192,12 @@ export default function Scoreboard() {
 
   const [team1, setTeam1] = useState("첼시");
   const [team2, setTeam2] = useState("토트넘");
+  const [team1Color, setTeam1Color] = useState("#034694");
+  const [team2Color, setTeam2Color] = useState("#242b40");
+  const [team1Font, setTeam1Font] = useState("#ffffff");
+  const [team2Font, setTeam2Font] = useState("#ffffff");
+  const [chromakeyColor, setChromakeyColor] = useState("#00ff00");
+
   const [team1Score, setTeam1Score] = useState(0);
   const [team2Score, setTeam2Score] = useState(0);
   const [isTeam1List, setIsTeam1List] = useState(false);
@@ -169,13 +215,6 @@ export default function Scoreboard() {
   const [isTime, setIsTime] = useState(true);
   const [timeNow, setTimeNow] = useState("전반");
 
-  const [team1Color, setTeam1Color] = useState("#034694");
-  const [team2Color, setTeam2Color] = useState("#242b40");
-  const [chromakeyColor, setChromakeyColor] = useState("#00ff00");
-
-  const [team1Font, setTeam1Font] = useState("#ffffff");
-  const [team2Font, setTeam2Font] = useState("#ffffff");
-
   const [timerButtonActive, setTimerButtonActive] = useState(true);
 
   const [team1CustomBackColor, setTeam1CustomBackColor] = useState("#ffffff");
@@ -185,9 +224,13 @@ export default function Scoreboard() {
   const [team2CustomBackColorActive, setTeam2CustomBackColorActive] =
     useState(false);
 
+  const [team1ColorActive, setTeam1ColorActive] = useState(true);
+  const [team2ColorActive, setTeam2ColorActive] = useState(true);
+
   const onClickTimerStart = () => {
     if (!timerButtonActive) return;
     setTimerButtonActive(false);
+
     timerId.current = setInterval(() => {
       time.current++;
       setMin(Math.floor(time.current / 60));
@@ -222,33 +265,25 @@ export default function Scoreboard() {
   }, 200);
 
   const onClickTeam1Button = () => {
+    const check = Object.keys(teamList).indexOf(teamInput) > -1;
+
     setTeam1(teamInput);
-    setTeam1CustomBackColorActive(true);
+    setTeam1ColorActive(true);
 
-    const backColor =
-      Object.keys(teamList).indexOf(teamInput) > -1
-        ? teamList[teamInput]["home"]
-        : "#ffffff";
-
-    setTeam1Color(backColor);
-
-    const fontColor =
-      Object.keys(teamList).indexOf(teamInput) > -1
-        ? teamList[teamInput]["homeFont"]
-        : "#000000";
-
-    setTeam1Font(fontColor);
+    if (check) {
+      setTeam1CustomBackColorActive(false);
+      setTeam1Color(teamList[teamInput]["home"]);
+      setTeam1Font(teamList[teamInput]["homeFont"]);
+    } else {
+      setTeam1CustomBackColorActive(true);
+      setTeam1Color("#ffffff");
+      setTeam1Font("#000000");
+    }
   };
   const onClickTeam2Button = () => {
+    setTeam2ColorActive(true);
     setTeam2(teamInput);
     setTeam2CustomBackColorActive(true);
-
-    // const color =
-    //   Object.keys(teamList).indexOf(teamInput) > -1
-    //     ? teamList[teamInput]["away"]
-    //     : "#000000";
-
-    // setTeam2Color(color);
 
     const backColor =
       Object.keys(teamList).indexOf(teamInput) > -1
@@ -335,17 +370,49 @@ export default function Scoreboard() {
   };
 
   const onClickTeam1CustomColorChangeButton = (event) => {
-    console.log(event.target.innerText);
-    if (event.target.innerText === "흰배경으로") setTeam1Color("#ffffff");
-    else setTeam1Color("#000000");
+    if (event.target.innerText === "흰배경 / 검은폰트로") {
+      setTeam1Color("#ffffff");
+      setTeam1Font("#000000");
+    } else {
+      setTeam1Color("#000000");
+      setTeam1Font("#ffffff");
+    }
   };
   const onClickTeam2CustomColorChangeButton = (event) => {
-    console.log(event.target.innerText);
-    // if (event.target.innerText === "흰배경으로")
-    //   setTeam2CustomBackColor("#ffffff");
-    // else setTeam2CustomBackColor("#000000");
-    if (event.target.innerText === "흰배경으로") setTeam2Color("#ffffff");
-    else setTeam2Color("#000000");
+    if (event.target.innerText === "흰배경 / 검은폰트로") {
+      setTeam2Color("#ffffff");
+      setTeam2Font("#000000");
+    } else {
+      setTeam2Color("#000000");
+      setTeam2Font("#ffffff");
+    }
+  };
+
+  const onClickTeam1ColorChoice = (event) => {
+    const choice = event.target.innerText;
+    if (choice === "HOME") {
+      setTeam1Color(teamList[team1]["home"]);
+      setTeam1Font(teamList[team1]["homeFont"]);
+    } else if (choice === "AWAY") {
+      setTeam1Color(teamList[team1]["away"]);
+      setTeam1Font(teamList[team1]["awayFont"]);
+    } else {
+      setTeam1Color(teamList[team1]["third"]);
+      setTeam1Font(teamList[team1]["thirdFont"]);
+    }
+  };
+  const onClickTeam2ColorChoice = (event) => {
+    const choice = event.target.innerText;
+    if (choice === "HOME") {
+      setTeam2Color(teamList[team2]["home"]);
+      setTeam2Font(teamList[team2]["homeFont"]);
+    } else if (choice === "AWAY") {
+      setTeam2Color(teamList[team2]["away"]);
+      setTeam2Font(teamList[team2]["awayFont"]);
+    } else {
+      setTeam2Color(teamList[team2]["third"]);
+      setTeam2Font(teamList[team2]["thirdFont"]);
+    }
   };
 
   return (
@@ -400,6 +467,12 @@ export default function Scoreboard() {
       onClickTeam2CustomColorChangeButton={onClickTeam2CustomColorChangeButton}
       setTeam1CustomBackColor={setTeam1CustomBackColor}
       setTeam2CustomBackColor={setTeam2CustomBackColor}
+      onClickTeam1ColorChoice={onClickTeam1ColorChoice}
+      onClickTeam2ColorChoice={onClickTeam2ColorChoice}
+      team1ColorActive={team1ColorActive}
+      team2ColorActive={team2ColorActive}
+      setTeam1ColorActive={setTeam1ColorActive}
+      setTeam2ColorActive={setTeam2ColorActive}
     ></ScoreboardUI>
   );
 }

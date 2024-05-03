@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import "../../app/font.css";
+// import "../../app/font.css";
 
 export const Body = styled.div`
-  font-family: "maple-font";
+  /* font-family: "maple-font"; */
   background-color: ${(props) => props.backColor};
   /* background-color: gray; */
   width: 1920px;
@@ -33,6 +33,7 @@ export const HandleBoxWrapper = styled.div`
 export const TeamHandleBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin: 0 20px;
 `;
 
@@ -104,17 +105,24 @@ export const ScoreWrapper = styled.div`
   /* width: 200px; */
   /* height: 100px; */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 export const ScoreBoxTitle = styled.p`
-  font-size: 30px;
+  font-size: 40px;
+  line-height: 50px;
   padding: 10px;
+  text-align: center;
+  width: 120px;
 `;
 
 export const ScoreBoxWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 176px;
+  padding: 0 10px;
 `;
 
 export const ScoreBox = styled.div`
@@ -124,15 +132,20 @@ export const ScoreBox = styled.div`
   background-color: black;
   color: white;
   cursor: pointer;
-  margin: 10px;
+  /* margin: 10px; */
   text-align: center;
   border: 2px solid white;
-  line-height: 40px;
+  line-height: 50px;
 
   :hover {
     background-color: white;
     color: black;
   }
+`;
+export const ScoreBoxPre = styled.div`
+  font-size: 40px;
+  line-height: 70px;
+  text-align: center;
 `;
 
 export const TimeWrapper = styled.div`
@@ -265,7 +278,7 @@ export const BoardColorTeamTitle = styled.div`
 `;
 
 export const CustomColorFontWhiteBlack = styled.div`
-  width: 100px;
+  width: 100%;
   height: 50px;
   background-color: black;
   color: white;
@@ -273,8 +286,9 @@ export const CustomColorFontWhiteBlack = styled.div`
   text-align: center;
   line-height: 50px;
   font-size: 15px;
-  margin: 10px 0 10px 40px;
+  /* margin: 10px 0 10px 40px; */
   cursor: pointer;
+  margin-top: 5px;
 
   :hover {
     background-color: white;
@@ -413,23 +427,17 @@ export const SettingWrapper = styled.div`
   padding: 20px;
 `;
 
-// export const MatchSettingBox = styled.div`
-//   width: 300px;
-//   padding: 10px;
-//   /* background-color: gray; */
-//   /* border: 2px solid white; */
-//   display: flex;
-//   flex-direction: column;
-// `;
-
 export const TeamScoreCustomColorWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  height: 128.23px;
+  flex-direction: column;
+  justify-content: end;
+  height: 123.5px;
 `;
 
 export const TeamCustomFontColorWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: end;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 5px;
+  gap: 10px;
 `;

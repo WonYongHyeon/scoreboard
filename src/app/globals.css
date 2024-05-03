@@ -112,11 +112,11 @@ a {
   src: url("./fonts/Maplestory.otf") format("opentype");
 }
 
-body {
+/* body {
   padding: 0;
   margin: 0;
   font-family: Maple, sans-serif;
-}
+} */
 
 div {
   font-family: Maple, sans-serif;
