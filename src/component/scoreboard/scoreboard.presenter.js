@@ -306,7 +306,7 @@ export default function ScoreboardUI(props) {
           <S.HandleBoxTitle>크로마키 색상</S.HandleBoxTitle>
           <S.HandleBox>
             <HexColorPicker
-              style={{ width: "200px", height: "200px" }}
+              style={{ width: "300px", height: "300px" }}
               color={props.chromakeyColor}
               onChange={props.setChromakeyColor}
             />

@@ -109,7 +109,8 @@ export const ScoreWrapper = styled.div`
 `;
 
 export const ScoreBoxTitle = styled.p`
-  font-size: 40px;
+  font-size: 30px;
+  font-weight: bold;
   line-height: 50px;
   padding: 10px;
   text-align: center;
