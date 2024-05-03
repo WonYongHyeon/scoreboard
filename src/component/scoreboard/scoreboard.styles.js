@@ -18,6 +18,7 @@ export const TimerStartButton = styled.button`
   width: 100px;
   height: 40px;
   font-size: 30px;
+  font-weight: bold;
 `;
 
 export const HandleBoxWrapper = styled.div`
@@ -39,6 +40,7 @@ export const TeamHandleBoxWrapper = styled.div`
 
 export const HandleBoxTitle = styled.div`
   font-size: 30px;
+  font-weight: bold;
   border: 2px solid white;
   border-radius: 5px 5px 0 0;
   background-color: gray;
@@ -63,6 +65,7 @@ export const SelectTeam = styled.div`
   text-align: center;
   justify-content: center;
   font-size: 30px;
+  font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
   color: white;
@@ -130,6 +133,7 @@ export const ScoreBox = styled.div`
   width: 50px;
   height: 50px;
   font-size: 40px;
+  font-weight: bold;
   background-color: black;
   color: white;
   cursor: pointer;
@@ -145,6 +149,7 @@ export const ScoreBox = styled.div`
 `;
 export const ScoreBoxPre = styled.div`
   font-size: 40px;
+  font-weight: bold;
   line-height: 70px;
   text-align: center;
 `;
@@ -164,6 +169,7 @@ export const TimeButtonWrapper = styled.div`
 export const TimeButton = styled.div`
   padding: 10px;
   font-size: 20px;
+  font-weight: bold;
   width: 100px;
   background-color: black;
   color: white;
@@ -198,6 +204,7 @@ export const TimeSettingInputWrapper = styled.div`
 
 export const TimeSettingTitle = styled.p`
   font-size: 20px;
+  font-weight: bold;
   height: 30px;
   line-height: 30px;
   margin-left: 10px;
@@ -209,6 +216,7 @@ export const TimeInput = styled.input`
   width: 100px;
   height: 30px;
   font-size: 20px;
+  font-weight: bold;
   border-radius: 5px;
   padding: 0 10px;
 `;
@@ -217,6 +225,7 @@ export const TimeSettingButton = styled.div`
   cursor: pointer;
   width: 100%;
   font-size: 20px;
+  font-weight: bold;
   line-height: 20px;
   padding: 5px;
   margin-top: 10px;
@@ -240,6 +249,7 @@ export const BoardTimerButtonWrapper = styled.div`
 export const BoardTimerButton = styled.div`
   height: 40px;
   font-size: 30px;
+  font-weight: bold;
   line-height: 40px;
   margin: 10px;
   text-align: center;
@@ -275,6 +285,7 @@ export const BoardColorTeam = styled.div`
 
 export const BoardColorTeamTitle = styled.div`
   font-size: 30px;
+  font-weight: bold;
   padding: 0 0 5px 0;
 `;
 
@@ -287,6 +298,7 @@ export const CustomColorFontWhiteBlack = styled.div`
   text-align: center;
   line-height: 50px;
   font-size: 15px;
+  font-weight: bold;
   /* margin: 10px 0 10px 40px; */
   cursor: pointer;
   margin-top: 5px;
@@ -305,6 +317,7 @@ export const MatchWrapper = styled.div`
 
 export const MatchTitleInput = styled.input`
   font-size: 20px;
+  font-weight: bold;
   width: 100%;
   padding: 5px 10px;
   border-radius: 5px;
@@ -316,6 +329,7 @@ export const MatchTitleSubmit = styled.div`
   background-color: black;
   color: white;
   font-size: 30px;
+  font-weight: bold;
   line-height: 50px;
   text-align: center;
   margin-top: 20px;

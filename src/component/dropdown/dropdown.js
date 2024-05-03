@@ -70,7 +70,7 @@ const TeamName = styled.li`
   padding: 0 10px;
   list-style: none;
   font-size: 20px;
-  /* width: 50px; */
+  font-weight: bold;
   background-color: white;
   cursor: pointer;
 
