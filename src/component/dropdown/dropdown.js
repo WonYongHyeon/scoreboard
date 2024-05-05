@@ -5,6 +5,7 @@ export default function DropDown(props) {
     const team = event.target.innerText;
     // 직접입력 선택
     if (team === "직접입력") {
+      props.setTeamInputActive(true);
       if (props.teamInfo === "home") {
         props.setTeamColor("#ffffff");
         props.setTeamFont("#000000");

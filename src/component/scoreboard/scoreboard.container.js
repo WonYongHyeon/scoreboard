@@ -227,6 +227,9 @@ export default function Scoreboard() {
   const [team1ColorActive, setTeam1ColorActive] = useState(true);
   const [team2ColorActive, setTeam2ColorActive] = useState(true);
 
+  const [team1InputActive, setTeam1InputActive] = useState(false);
+  const [team2InputActive, setTeam2InputActive] = useState(false);
+
   const onClickTimerStart = () => {
     if (!timerButtonActive) return;
     setTimerButtonActive(false);
@@ -240,15 +243,30 @@ export default function Scoreboard() {
 
   const onClickTimerPauseResume = () => {
     setTimerButtonActive(true);
+
     clearInterval(timerId.current);
   };
 
   const onClickTeam1ListActive = () => {
+    if (isTeam1List === true) {
+      setIsTeam1List(false);
+      setTeam1ColorActive(true);
+      return;
+    }
+
     setTeam1ColorActive(false);
+    setTeam1InputActive(false);
     setIsTeam1List(true);
   };
   const onClickTeam2ListActive = () => {
+    if (isTeam2List === true) {
+      setIsTeam2List(false);
+      setTeam2ColorActive(true);
+      return;
+    }
+
     setTeam2ColorActive(false);
+    setTeam2InputActive(false);
     setIsTeam2List(true);
   };
 
@@ -271,6 +289,7 @@ export default function Scoreboard() {
 
     setTeam1(teamInput);
     setTeam1ColorActive(true);
+    setTeam1InputActive(false);
 
     if (check) {
       setTeam1CustomBackColorActive(false);
@@ -288,6 +307,7 @@ export default function Scoreboard() {
 
     setTeam2(teamInput);
     setTeam2ColorActive(true);
+    setTeam2InputActive(false);
 
     if (check) {
       setTeam2CustomBackColorActive(false);
@@ -491,6 +511,10 @@ export default function Scoreboard() {
       setTeam2ColorActive={setTeam2ColorActive}
       setIsTeam1List={setIsTeam1List}
       setIsTeam2List={setIsTeam2List}
+      team1InputActive={team1InputActive}
+      team2InputActive={team2InputActive}
+      setTeam1InputActive={setTeam1InputActive}
+      setTeam2InputActive={setTeam2InputActive}
     ></ScoreboardUI>
   );
 }

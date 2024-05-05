@@ -89,9 +89,10 @@ export default function ScoreboardUI(props) {
                     props.setTeam1CustomBackColorActive
                   }
                   setTeamColorActive={props.setTeam1ColorActive}
+                  setTeamInputActive={props.setTeam1InputActive}
                 />
               )}
-              {props.team1 === "직접입력" && (
+              {props.team1InputActive && (
                 <S.TeamInputWrapper>
                   <S.TeamInput
                     onChange={props.onChangeTeam1}
@@ -162,7 +163,7 @@ export default function ScoreboardUI(props) {
               <S.SelectTeam onClick={props.onClickTeam2ListActive}>
                 {props.team2}
               </S.SelectTeam>
-              {props.team2 === "직접입력" && (
+              {props.team2InputActive && (
                 <S.TeamInputWrapper>
                   <S.TeamInput
                     onChange={props.onChangeTeam2}
@@ -186,6 +187,7 @@ export default function ScoreboardUI(props) {
                   props.setTeam2CustomBackColorActive
                 }
                 setTeamColorActive={props.setTeam2ColorActive}
+                setTeamInputActive={props.setTeam2InputActive}
               />
             )}
 
