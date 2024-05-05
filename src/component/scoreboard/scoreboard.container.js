@@ -1,5 +1,5 @@
 "use client"; // this is a client component
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ScoreboardUI from "./scoreboard.presenter";
 import _ from "lodash";
 
@@ -18,7 +18,7 @@ const teamList = {
     home: "#393939",
     homeFont: "#ffffff",
     away: "#19978f",
-    awayFont: "#ffffff",
+    awayFont: "#000000",
     third: "#033e70",
     thirdFont: "#ffffff",
   },
@@ -42,7 +42,7 @@ const teamList = {
   },
   맨시티: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTQg/MDAxNzE0NjU5ODI5NDM2.lKKSvhhU92I9QdlnITXIm7t61CxGMCCbCvBEfJQd1G0g.-XUyox8aIhfMj_yB5KgSlet_EFC2DhEHGn6vrmAZNwIg.PNG/%EB%A7%A8%EC%8B%9C%ED%8B%B0.png?type=w1600",
-    home: "#98c5ea",
+    home: "#a6cce5",
     homeFont: "#000000",
     away: "#e7e7e7",
     awayFont: "#000000",
@@ -134,9 +134,9 @@ const teamList = {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTcw/MDAxNzE0NjU5ODI5NDM1.iBB-FAU-y8cH_TWYBiwu_6Dv6kXj7NHvMsVjdStudXYg.C-5b6sS1GcncSKN3jWpEnKhXW4x9fxjMuceaSOKNkuAg.PNG/%EC%9A%B8%EB%B2%84%ED%96%84%ED%8A%BC.png?type=w1600",
     home: "#fcb917",
     homeFont: "#000000",
-    away: "#1993ab",
+    away: "#dd1f00",
     awayFont: "#000000",
-    third: "#dce5ed",
+    third: "#78d0da",
     thirdFont: "#000000",
   },
   웨스트햄: {
@@ -187,15 +187,15 @@ const teamList = {
 };
 
 export default function Scoreboard() {
-  const [title, setTitle] = useState("23-24 EPL 26R");
+  const [title, setTitle] = useState("23-24 EPL 36R");
   const [teamInput, setTeamInput] = useState("");
 
-  const [team1, setTeam1] = useState("첼시");
+  const [team1, setTeam1] = useState("리버풀");
   const [team2, setTeam2] = useState("토트넘");
-  const [team1Color, setTeam1Color] = useState("#034694");
-  const [team2Color, setTeam2Color] = useState("#242b40");
-  const [team1Font, setTeam1Font] = useState("#ffffff");
-  const [team2Font, setTeam2Font] = useState("#ffffff");
+  const [team1Color, setTeam1Color] = useState("#ffffff");
+  const [team2Color, setTeam2Color] = useState("#ffffff");
+  const [team1Font, setTeam1Font] = useState("#000000");
+  const [team2Font, setTeam2Font] = useState("#000000");
   const [chromakeyColor, setChromakeyColor] = useState("#00ff00");
 
   const [team1Score, setTeam1Score] = useState(0);
@@ -244,10 +244,12 @@ export default function Scoreboard() {
   };
 
   const onClickTeam1ListActive = () => {
-    setIsTeam1List((env) => !env);
+    setTeam1ColorActive(false);
+    setIsTeam1List(true);
   };
   const onClickTeam2ListActive = () => {
-    setIsTeam2List((env) => !env);
+    setTeam2ColorActive(false);
+    setIsTeam2List(true);
   };
 
   const onChangeTeam1 = (event) => {
@@ -280,24 +282,22 @@ export default function Scoreboard() {
       setTeam1Font("#000000");
     }
   };
+
   const onClickTeam2Button = () => {
-    setTeam2ColorActive(true);
+    const check = Object.keys(teamList).indexOf(teamInput) > -1;
+
     setTeam2(teamInput);
-    setTeam2CustomBackColorActive(true);
+    setTeam2ColorActive(true);
 
-    const backColor =
-      Object.keys(teamList).indexOf(teamInput) > -1
-        ? teamList[teamInput]["away"]
-        : "#000000";
-
-    setTeam2Color(backColor);
-
-    const fontColor =
-      Object.keys(teamList).indexOf(teamInput) > -1
-        ? teamList[teamInput]["awayFont"]
-        : "#ffffff";
-
-    setTeam2Font(fontColor);
+    if (check) {
+      setTeam2CustomBackColorActive(false);
+      setTeam2Color(teamList[teamInput]["away"]);
+      setTeam2Font(teamList[teamInput]["awayFont"]);
+    } else {
+      setTeam2CustomBackColorActive(true);
+      setTeam2Color("#000000");
+      setTeam2Font("#ffffff");
+    }
   };
 
   const onClickTeam1Score = (number) => {
@@ -415,6 +415,22 @@ export default function Scoreboard() {
     }
   };
 
+  useEffect(() => {
+    const team1Obj = teamList[team1];
+    const team2Obj = teamList[team2];
+
+    setTeam1Color(team1Obj["home"]);
+    setTeam1Font(team1Obj["homeFont"]);
+    setTeam2Color(team2Obj["away"]);
+    setTeam2Font(team2Obj["awayFont"]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  console.log("team1CustomBackColorActive : " + team1CustomBackColorActive);
+  console.log("team1ColorActive : " + team1ColorActive);
+  console.log("team2CustomBackColorActive : " + team2CustomBackColorActive);
+  console.log("team2ColorActive : " + team2ColorActive);
+
   return (
     <ScoreboardUI
       isTime={isTime}
@@ -473,6 +489,8 @@ export default function Scoreboard() {
       team2ColorActive={team2ColorActive}
       setTeam1ColorActive={setTeam1ColorActive}
       setTeam2ColorActive={setTeam2ColorActive}
+      setIsTeam1List={setIsTeam1List}
+      setIsTeam2List={setIsTeam2List}
     ></ScoreboardUI>
   );
 }

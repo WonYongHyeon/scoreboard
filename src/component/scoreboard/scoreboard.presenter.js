@@ -59,12 +59,13 @@ export default function ScoreboardUI(props) {
             </S.BTeamLogeWrapper>
           </S.BTeam2>
           {props.isTime ? (
-            <S.BTimer>
-              {String(props.min).padStart(2, "0")} :{" "}
-              {String(props.second).padStart(2, "0")}
-            </S.BTimer>
+            <S.BTimerWrapper>
+              <S.BTimerMin>{String(props.min).padStart(2, "0")}</S.BTimerMin>
+              <S.BTimerColon> : </S.BTimerColon>
+              <S.BTimerSec>{String(props.second).padStart(2, "0")}</S.BTimerSec>
+            </S.BTimerWrapper>
           ) : (
-            <S.BTimer>{props.timeNow}</S.BTimer>
+            <S.BTimerWrapper>{props.timeNow}</S.BTimerWrapper>
           )}
         </S.BWrapper>
       </S.ScoreBoardAndColorPickerWrapper>
@@ -72,34 +73,36 @@ export default function ScoreboardUI(props) {
         <S.TeamHandleBoxWrapper>
           <S.HandleBoxTitle>Team 1</S.HandleBoxTitle>
           <S.HandleBox>
-            <S.SelectTeam onClick={props.onClickTeam1ListActive}>
-              {props.team1}
-            </S.SelectTeam>
-            {props.isTeam1List && (
-              <DropDown
-                onClickTeamListActive={props.onClickTeam1ListActive}
-                setTeamColor={props.setTeam1Color}
-                setTeamFont={props.setTeam1Font}
-                setTeam={props.setTeam1}
-                teamList={props.teamList}
-                teamInfo="home"
-                setTeamCustomBackColorActive={
-                  props.setTeam1CustomBackColorActive
-                }
-                setTeamColorActive={props.setTeam1ColorActive}
-              />
-            )}
-            {props.team1 === "직접입력" && (
-              <S.TeamInputWrapper>
-                <S.TeamInput
-                  onChange={props.onChangeTeam1}
-                  placeholder="직접입력"
-                ></S.TeamInput>
-                <S.TeamInputSubmit onClick={props.onClickTeam1Button}>
-                  적용
-                </S.TeamInputSubmit>
-              </S.TeamInputWrapper>
-            )}
+            <div>
+              <S.SelectTeam onClick={props.onClickTeam1ListActive}>
+                {props.team1}
+              </S.SelectTeam>
+              {props.isTeam1List && (
+                <DropDown
+                  setIsTeamList={props.setIsTeam1List}
+                  setTeamColor={props.setTeam1Color}
+                  setTeamFont={props.setTeam1Font}
+                  setTeam={props.setTeam1}
+                  teamList={props.teamList}
+                  teamInfo="home"
+                  setTeamCustomBackColorActive={
+                    props.setTeam1CustomBackColorActive
+                  }
+                  setTeamColorActive={props.setTeam1ColorActive}
+                />
+              )}
+              {props.team1 === "직접입력" && (
+                <S.TeamInputWrapper>
+                  <S.TeamInput
+                    onChange={props.onChangeTeam1}
+                    placeholder="직접입력"
+                  ></S.TeamInput>
+                  <S.TeamInputSubmit onClick={props.onClickTeam1Button}>
+                    적용
+                  </S.TeamInputSubmit>
+                </S.TeamInputWrapper>
+              )}
+            </div>
             <S.TeamScoreCustomColorWrapper>
               {props.team1ColorActive &&
                 (props.team1CustomBackColorActive ? (
@@ -155,12 +158,25 @@ export default function ScoreboardUI(props) {
         <S.TeamHandleBoxWrapper>
           <S.HandleBoxTitle>Team 2</S.HandleBoxTitle>
           <S.HandleBox>
-            <S.SelectTeam onClick={props.onClickTeam2ListActive}>
-              {props.team2}
-            </S.SelectTeam>
+            <div>
+              <S.SelectTeam onClick={props.onClickTeam2ListActive}>
+                {props.team2}
+              </S.SelectTeam>
+              {props.team2 === "직접입력" && (
+                <S.TeamInputWrapper>
+                  <S.TeamInput
+                    onChange={props.onChangeTeam2}
+                    placeholder="직접입력"
+                  ></S.TeamInput>
+                  <S.TeamInputSubmit onClick={props.onClickTeam2Button}>
+                    적용
+                  </S.TeamInputSubmit>
+                </S.TeamInputWrapper>
+              )}
+            </div>
             {props.isTeam2List && (
               <DropDown
-                onClickTeamListActive={props.onClickTeam2ListActive}
+                setIsTeamList={props.setIsTeam2List}
                 setTeamColor={props.setTeam2Color}
                 setTeamFont={props.setTeam2Font}
                 setTeam={props.setTeam2}
@@ -172,17 +188,7 @@ export default function ScoreboardUI(props) {
                 setTeamColorActive={props.setTeam2ColorActive}
               />
             )}
-            {props.team2 === "직접입력" && (
-              <S.TeamInputWrapper>
-                <S.TeamInput
-                  onChange={props.onChangeTeam2}
-                  placeholder="직접입력"
-                ></S.TeamInput>
-                <S.TeamInputSubmit onClick={props.onClickTeam2Button}>
-                  적용
-                </S.TeamInputSubmit>
-              </S.TeamInputWrapper>
-            )}
+
             <S.TeamScoreCustomColorWrapper>
               {props.team2ColorActive &&
                 (props.team2CustomBackColorActive ? (

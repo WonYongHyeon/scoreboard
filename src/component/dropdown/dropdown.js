@@ -3,10 +3,8 @@ import styled from "@emotion/styled";
 export default function DropDown(props) {
   const onClickList = (event) => {
     const team = event.target.innerText;
-
+    // 직접입력 선택
     if (team === "직접입력") {
-      props.setTeamCustomBackColorActive(true);
-      props.setTeamColorActive(false);
       if (props.teamInfo === "home") {
         props.setTeamColor("#ffffff");
         props.setTeamFont("#000000");
@@ -14,10 +12,12 @@ export default function DropDown(props) {
         props.setTeamColor("#000000");
         props.setTeamFont("#ffffff");
       }
-    } else {
-      props.setTeamCustomBackColorActive(false);
-      props.setTeamColorActive(true);
 
+      props.setTeamCustomBackColorActive(true);
+      props.setTeamColorActive(false);
+    }
+    // 팀 선택
+    else {
       if (props.teamInfo === "home") {
         props.setTeamColor(props.teamList[team]["home"]);
         props.setTeamFont(props.teamList[team]["homeFont"]);
@@ -25,9 +25,12 @@ export default function DropDown(props) {
         props.setTeamColor(props.teamList[team]["away"]);
         props.setTeamFont(props.teamList[team]["awayFont"]);
       }
+
+      props.setTeamCustomBackColorActive(false);
+      props.setTeamColorActive(true);
     }
 
-    props.onClickTeamListActive();
+    props.setIsTeamList(false);
     props.setTeam(event.target.innerText);
   };
 

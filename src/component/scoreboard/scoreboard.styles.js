@@ -1,12 +1,8 @@
 import styled from "@emotion/styled";
-// import "../../app/font.css";
 
 export const Body = styled.div`
-  /* font-family: "maple-font"; */
   background-color: ${(props) => props.backColor};
-  /* background-color: gray; */
   width: 1920px;
-  /* height: 900px; */
   padding: 30px 30px 0 30px;
 `;
 export const ScoreBoardAndColorPickerWrapper = styled.div`
@@ -58,7 +54,7 @@ export const HandleBox = styled.div`
 `;
 
 export const SelectTeam = styled.div`
-  width: 150px;
+  min-width: 150px;
   background-color: black;
   border: 2px solid white;
   margin: 10px;
@@ -83,7 +79,7 @@ export const TeamInputWrapper = styled.div`
 `;
 
 export const TeamInput = styled.input`
-  width: 150px;
+  width: 300px;
   height: 30px;
   border-radius: 5px;
   padding: 5px;
@@ -346,7 +342,7 @@ export const MatchTitleSubmit = styled.div`
 export const BWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 900px;
+  width: 875px;
   height: 490px;
 `;
 
@@ -423,7 +419,7 @@ export const BTeamScore = styled.div`
   text-align: center;
 `;
 
-export const BTimer = styled.div`
+export const BTimerWrapper = styled.div`
   margin: auto;
   width: 200px;
   height: 70px;
@@ -434,6 +430,27 @@ export const BTimer = styled.div`
   border-radius: 0 0 30px 30px;
   text-align: center;
   color: white;
+  display: flex;
+`;
+export const BTimerMin = styled.div`
+  width: 90px;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 70px;
+  text-align: right;
+`;
+export const BTimerSec = styled.div`
+  width: 90px;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 70px;
+  text-align: left;
+`;
+export const BTimerColon = styled.div`
+  width: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 70px;
 `;
 
 export const SettingWrapper = styled.div`
@@ -446,7 +463,7 @@ export const TeamScoreCustomColorWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: end;
-  height: 123.5px;
+  /* height: 123.5px; */
 `;
 
 export const TeamCustomFontColorWrapper = styled.div`
@@ -455,4 +472,5 @@ export const TeamCustomFontColorWrapper = styled.div`
   justify-content: space-around;
   padding-bottom: 5px;
   gap: 10px;
+  height: 50px;
 `;
