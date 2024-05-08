@@ -26,7 +26,7 @@ const teamList = {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMiAg/MDAxNzE0NjU5ODI5NDM1.qm4Rb9FKjdQ74ArRYnLYhFY7qer6V9V0PcjXH4a7tiMg.Ibku1uOqGs4rHUYX7b7Qq7v849L8-yfFksLVHTywVpwg.PNG/%EB%A3%A8%ED%84%B4%ED%83%80%EC%9A%B4.png?type=w1600",
     home: "#ff7900",
     homeFont: "#000000",
-    away: "#ffffff",
+    away: "#dcdcdc",
     awayFont: "#000000",
     third: "#313555",
     thirdFont: "#ffffff",
@@ -44,7 +44,7 @@ const teamList = {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTQg/MDAxNzE0NjU5ODI5NDM2.lKKSvhhU92I9QdlnITXIm7t61CxGMCCbCvBEfJQd1G0g.-XUyox8aIhfMj_yB5KgSlet_EFC2DhEHGn6vrmAZNwIg.PNG/%EB%A7%A8%EC%8B%9C%ED%8B%B0.png?type=w1600",
     home: "#a6cce5",
     homeFont: "#000000",
-    away: "#e7e7e7",
+    away: "#dcdcdc",
     awayFont: "#000000",
     third: "#1e282c",
     thirdFont: "#ffffff",
@@ -55,7 +55,7 @@ const teamList = {
     homeFont: "#ffffff",
     away: "#344f4e",
     awayFont: "#ffffff",
-    third: "#ffffff",
+    third: "#dcdcdc",
     thirdFont: "#000000",
   },
   번리: {
@@ -116,7 +116,7 @@ const teamList = {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjg3/MDAxNzE0NjU5ODI5NDE2.AvUfs1LwPbAiJQC9yviPqIB7x5c0MLXze1eZ7ChMIFwg.ILu25CxFzFXVsvRYUAE4yX7_vlv5d5-f4xyM_q8Lokcg.PNG/%EC%95%A0%EC%8A%A4%ED%84%B4%EB%B9%8C%EB%9D%BC.png?type=w1600",
     home: "#660c34",
     homeFont: "#ffffff",
-    away: "#ffffff",
+    away: "#dcdcdc",
     awayFont: "#000000",
     third: "#587d95",
     thirdFont: "#ffffff",
@@ -143,7 +143,7 @@ const teamList = {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTM2/MDAxNzE0NjU5ODI5NDM1.WFTGF96iquEZgrVtQlY2xFrR41wiTZR57JRe1x7O95cg.T1MwQNtx6BlqK8s3YdP450EuZ-jFt0VSmCl5v4r6puIg.PNG/%EC%9B%A8%EC%8A%A4%ED%8A%B8%ED%96%84.png?type=w1600",
     home: "#7d2c3b",
     homeFont: "#ffffff",
-    away: "#ffffff",
+    away: "#dcdcdc",
     awayFont: "#000000",
     third: "#0e4180",
     thirdFont: "#ffffff",
@@ -161,14 +161,14 @@ const teamList = {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjM3/MDAxNzE0NjU5ODI5NDM1.3eGEz-vEo7gnCWOwrpX8xISRA8mHBVN9y-d0OeTaeMIg.XpHFJQIukxmiL-KPoZQRNK2tiLatK48dkZmCf09D56gg.PNG/%ED%81%AC%ED%8C%B0.png?type=w1600",
     home: "#1a458f",
     homeFont: "#ffffff",
-    away: "#ffffff",
+    away: "#dcdcdc",
     awayFont: "#000000",
     third: "#1a191e",
     thirdFont: "#ffffff",
   },
   토트넘: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjI4/MDAxNzE0NjYwNjUzMDcy.pa99JBMIzo7qPn-IEsRJxAPAaxrHylEztuTnqSFS9Xog.Q8NU1DYJoAScrnYEBqfiUXN9punj_4v9yuuaWPi3npcg.PNG/%ED%86%A0%ED%8A%B8%EB%84%98.png?type=w1600",
-    home: "#ffffff",
+    home: "#dcdcdc",
     homeFont: "#000000",
     away: "#242b40",
     awayFont: "#ffffff",
@@ -177,7 +177,7 @@ const teamList = {
   },
   풀럼: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjI2/MDAxNzE0NjU5ODI5NDIy.E3DtgJHDYC7iIAF2UkeaMExmBywZNbFQ2a1azR5Puwwg.LIcWTThtLA5asFIAupsGIhLZEE-GJHtVD7op71O15asg.PNG/%ED%92%80%EB%9F%BC.png?type=w1600",
-    home: "#ffffff",
+    home: "#dcdcdc",
     homeFont: "#000000",
     away: "#ed2f7b",
     awayFont: "#000000",
@@ -187,21 +187,29 @@ const teamList = {
 };
 
 export default function Scoreboard() {
-  const [title, setTitle] = useState("23-24 EPL 36R");
+  const [title, setTitle] = useState("23-24 EPL 37R");
   const [teamInput, setTeamInput] = useState("");
-
-  const [team1, setTeam1] = useState("리버풀");
-  const [team2, setTeam2] = useState("토트넘");
-  const [team1Color, setTeam1Color] = useState("#ffffff");
-  const [team2Color, setTeam2Color] = useState("#ffffff");
-  const [team1Font, setTeam1Font] = useState("#000000");
-  const [team2Font, setTeam2Font] = useState("#000000");
   const [chromakeyColor, setChromakeyColor] = useState("#00ff00");
 
+  const [team1, setTeam1] = useState("토트넘");
+  const [team1Color, setTeam1Color] = useState("#dcdcdc");
+  const [team1Font, setTeam1Font] = useState("#000000");
+  const [team1CustomColor, setTeam1CustomColor] = useState("#ffffff");
+  const [team1CustomColorActive, setTeam1CustomColorActive] = useState(false);
   const [team1Score, setTeam1Score] = useState(0);
+  const [team1ListActive, setTeam1ListActive] = useState(false);
+  const [team1ColorActive, setTeam1ColorActive] = useState(true);
+  const [team1InputActive, setTeam1InputActive] = useState(false);
+
+  const [team2, setTeam2] = useState("번리");
+  const [team2Color, setTeam2Color] = useState("#5f0d41");
+  const [team2Font, setTeam2Font] = useState("#ffffff");
+  const [team2CustomColor, setTeam2CustomColor] = useState("#000000");
+  const [team2CustomColorActive, setTeam2CustomColorActive] = useState(false);
   const [team2Score, setTeam2Score] = useState(0);
-  const [isTeam1List, setIsTeam1List] = useState(false);
-  const [isTeam2List, setIsTeam2List] = useState(false);
+  const [team2ListActive, setTeam2ListActive] = useState(false);
+  const [team2ColorActive, setTeam2ColorActive] = useState(true);
+  const [team2InputActive, setTeam2InputActive] = useState(false);
 
   const [min, setMin] = useState(0);
   const [second, setSecond] = useState(0);
@@ -214,22 +222,9 @@ export default function Scoreboard() {
   const timerId = useRef("");
   const [isTime, setIsTime] = useState(true);
   const [timeNow, setTimeNow] = useState("전반");
-
   const [timerButtonActive, setTimerButtonActive] = useState(true);
 
-  const [team1CustomBackColor, setTeam1CustomBackColor] = useState("#ffffff");
-  const [team2CustomBackColor, setTeam2CustomBackColor] = useState("#000000");
-  const [team1CustomBackColorActive, setTeam1CustomBackColorActive] =
-    useState(false);
-  const [team2CustomBackColorActive, setTeam2CustomBackColorActive] =
-    useState(false);
-
-  const [team1ColorActive, setTeam1ColorActive] = useState(true);
-  const [team2ColorActive, setTeam2ColorActive] = useState(true);
-
-  const [team1InputActive, setTeam1InputActive] = useState(false);
-  const [team2InputActive, setTeam2InputActive] = useState(false);
-
+  /** 타이머 시작 버튼 Click 함수 */
   const onClickTimerStart = () => {
     if (!timerButtonActive) return;
     setTimerButtonActive(false);
@@ -240,50 +235,50 @@ export default function Scoreboard() {
       setSecond(time.current % 60);
     }, 1000);
   };
-
+  /** 타이머 일시 정지 버튼 Click 함수 */
   const onClickTimerPauseResume = () => {
     setTimerButtonActive(true);
 
     clearInterval(timerId.current);
   };
 
+  /** Team1 팀 선택 버튼 클릭 함수 */
   const onClickTeam1ListActive = () => {
-    if (isTeam1List === true) {
-      setIsTeam1List(false);
+    if (team1ListActive === true) {
+      setTeam1ListActive(false);
       setTeam1ColorActive(true);
       return;
     }
-
     setTeam1ColorActive(false);
     setTeam1InputActive(false);
-    setIsTeam1List(true);
+    setTeam1ListActive(true);
   };
+
+  /**  Team2 팀 선택 버튼 클릭 함수 */
   const onClickTeam2ListActive = () => {
-    if (isTeam2List === true) {
-      setIsTeam2List(false);
+    if (team2ListActive === true) {
+      setTeam2ListActive(false);
       setTeam2ColorActive(true);
       return;
     }
-
     setTeam2ColorActive(false);
     setTeam2InputActive(false);
-    setIsTeam2List(true);
+    setTeam2ListActive(true);
   };
 
+  /** 팀1 직접입력 체인지 함수 */
   const onChangeTeam1 = (event) => {
-    getDebounceTem1(event.target.value);
+    getDebounceTeam(event.target.value);
   };
-  const getDebounceTem1 = _.debounce((input) => {
-    setTeamInput(input);
-  }, 200);
-
+  /** 팀2 직접입력 체인지 함수 */
   const onChangeTeam2 = (event) => {
-    getDebounceTeam2(event.target.value);
+    getDebounceTeam(event.target.value);
   };
-  const getDebounceTeam2 = _.debounce((input) => {
+  const getDebounceTeam = _.debounce((input) => {
     setTeamInput(input);
   }, 200);
 
+  /** 팀1 수동 입력후 적용 버튼 클릭 함수 */
   const onClickTeam1Button = () => {
     const check = Object.keys(teamList).indexOf(teamInput) > -1;
 
@@ -292,16 +287,17 @@ export default function Scoreboard() {
     setTeam1InputActive(false);
 
     if (check) {
-      setTeam1CustomBackColorActive(false);
+      setTeam1CustomColorActive(false);
       setTeam1Color(teamList[teamInput]["home"]);
       setTeam1Font(teamList[teamInput]["homeFont"]);
     } else {
-      setTeam1CustomBackColorActive(true);
+      setTeam1CustomColorActive(true);
       setTeam1Color("#ffffff");
       setTeam1Font("#000000");
     }
   };
 
+  /** 팀2 수동 입력후 적용 버튼 클릭 함수 */
   const onClickTeam2Button = () => {
     const check = Object.keys(teamList).indexOf(teamInput) > -1;
 
@@ -310,25 +306,29 @@ export default function Scoreboard() {
     setTeam2InputActive(false);
 
     if (check) {
-      setTeam2CustomBackColorActive(false);
+      setTeam2CustomColorActive(false);
       setTeam2Color(teamList[teamInput]["away"]);
       setTeam2Font(teamList[teamInput]["awayFont"]);
     } else {
-      setTeam2CustomBackColorActive(true);
+      setTeam2CustomColorActive(true);
       setTeam2Color("#000000");
       setTeam2Font("#ffffff");
     }
   };
 
+  /** 팀1 스코어 변경 함수 */
   const onClickTeam1Score = (number) => {
     if (team1Score === 0 && number === -1) return;
     setTeam1Score((env) => env + number);
   };
+
+  /** 팀2 스코어 변경 함수 */
   const onClickTeam2Score = (number) => {
     if (team2Score === 0 && number === -1) return;
     setTeam2Score((env) => env + number);
   };
 
+  /** 타이머 시간 자동 적용 버튼 클릭 함수 */
   const onClickTimeButton = (event) => {
     const txt = event.target.innerText;
     let buttonSecond = 0;
@@ -359,6 +359,7 @@ export default function Scoreboard() {
     setTimeNow(txt);
   };
 
+  /** 시간 직접 적용 체인지 함수 */
   const onChangeTimeSetting = (event) => {
     const { id, value } = event.target;
 
@@ -368,6 +369,7 @@ export default function Scoreboard() {
     });
   };
 
+  /** 시간 직접 적용 클릭 함수 */
   const onClickTimeSetting = () => {
     setMin(inputTime.min);
     setSecond(inputTime.sec);
@@ -376,19 +378,23 @@ export default function Scoreboard() {
     time.current = Number(inputTime.min) * 60 + Number(inputTime.sec);
   };
 
+  /** 팀1 폰트 검/흰 변경 함수 */
   const onClickFont1Color = () => {
     if (team1Font === "#ffffff") setTeam1Font("#000000");
     else setTeam1Font("#ffffff");
   };
+  /** 팀2 폰트 검/흰 변경 함수 */
   const onClickFont2Color = () => {
     if (team2Font === "#ffffff") setTeam2Font("#000000");
     else setTeam2Font("#ffffff");
   };
 
+  /** 매치 타이틀 변경 체인지 함수 */
   const onChangeTitle = (event) => {
     setTitle(event.target.value);
   };
 
+  /** 팀1 커스텀팀 배경, 폰트 색상 변경 함수 */
   const onClickTeam1CustomColorChangeButton = (event) => {
     if (event.target.innerText === "흰배경 / 검은폰트로") {
       setTeam1Color("#ffffff");
@@ -398,6 +404,8 @@ export default function Scoreboard() {
       setTeam1Font("#ffffff");
     }
   };
+
+  /** 팀2 커스텀팀 배경, 폰트 색상 변경 함수 */
   const onClickTeam2CustomColorChangeButton = (event) => {
     if (event.target.innerText === "흰배경 / 검은폰트로") {
       setTeam2Color("#ffffff");
@@ -408,6 +416,7 @@ export default function Scoreboard() {
     }
   };
 
+  /** 팀1 홈, 어웨이, 서드 별 배경, 폰트 색상 변경 함수 */
   const onClickTeam1ColorChoice = (event) => {
     const choice = event.target.innerText;
     if (choice === "HOME") {
@@ -421,6 +430,8 @@ export default function Scoreboard() {
       setTeam1Font(teamList[team1]["thirdFont"]);
     }
   };
+
+  /** 팀2 홈, 어웨이, 서드 별 배경, 폰트 색상 변경 함수 */
   const onClickTeam2ColorChoice = (event) => {
     const choice = event.target.innerText;
     if (choice === "HOME") {
@@ -435,22 +446,6 @@ export default function Scoreboard() {
     }
   };
 
-  useEffect(() => {
-    const team1Obj = teamList[team1];
-    const team2Obj = teamList[team2];
-
-    setTeam1Color(team1Obj["home"]);
-    setTeam1Font(team1Obj["homeFont"]);
-    setTeam2Color(team2Obj["away"]);
-    setTeam2Font(team2Obj["awayFont"]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  console.log("team1CustomBackColorActive : " + team1CustomBackColorActive);
-  console.log("team1ColorActive : " + team1ColorActive);
-  console.log("team2CustomBackColorActive : " + team2CustomBackColorActive);
-  console.log("team2ColorActive : " + team2ColorActive);
-
   return (
     <ScoreboardUI
       isTime={isTime}
@@ -458,15 +453,37 @@ export default function Scoreboard() {
       title={title}
       teamList={teamList}
       team1={team1}
-      team2={team2}
-      setTeam1={setTeam1}
-      setTeam2={setTeam2}
       team1Score={team1Score}
-      team2Score={team2Score}
       team1Color={team1Color}
+      team1ColorActive={team1ColorActive}
+      team1ListActive={team1ListActive}
+      team1Font={team1Font}
+      team1CustomColor={team1CustomColor}
+      team1CustomColorActive={team1CustomColorActive}
+      team1InputActive={team1InputActive}
+      setTeam1={setTeam1}
+      setTeam1Color={setTeam1Color}
+      setTeam1Font={setTeam1Font}
+      setTeam1ColorActive={setTeam1ColorActive}
+      setTeam1ListActive={setTeam1ListActive}
+      setTeam1InputActive={setTeam1InputActive}
+      team2={team2}
+      team2Score={team2Score}
       team2Color={team2Color}
-      isTeam1List={isTeam1List}
-      isTeam2List={isTeam2List}
+      team2ColorActive={team2ColorActive}
+      team2ListActive={team2ListActive}
+      team2Font={team2Font}
+      team2CustomColor={team2CustomColor}
+      team2CustomColorActive={team2CustomColorActive}
+      team2InputActive={team2InputActive}
+      setTeam2={setTeam2}
+      setTeam2Color={setTeam2Color}
+      setTeam2Font={setTeam2Font}
+      setTeam2ColorActive={setTeam2ColorActive}
+      setTeam2ListActive={setTeam2ListActive}
+      setTeam2InputActive={setTeam2InputActive}
+      chromakeyColor={chromakeyColor}
+      setChromakeyColor={setChromakeyColor}
       onClickTeam1ListActive={onClickTeam1ListActive}
       onClickTeam2ListActive={onClickTeam2ListActive}
       min={min}
@@ -482,39 +499,17 @@ export default function Scoreboard() {
       onClickTimeButton={onClickTimeButton}
       onChangeTimeSetting={onChangeTimeSetting}
       onClickTimeSetting={onClickTimeSetting}
-      chromakeyColor={chromakeyColor}
-      setChromakeyColor={setChromakeyColor}
-      team1Font={team1Font}
-      team2Font={team2Font}
       onClickFont1Color={onClickFont1Color}
       onClickFont2Color={onClickFont2Color}
       onChangeTitle={onChangeTitle}
-      setTeam1Color={setTeam1Color}
-      setTeam2Color={setTeam2Color}
-      setTeam1Font={setTeam1Font}
-      setTeam2Font={setTeam2Font}
-      team1CustomBackColor={team1CustomBackColor}
-      team2CustomBackColor={team2CustomBackColor}
-      team1CustomBackColorActive={team1CustomBackColorActive}
-      team2CustomBackColorActive={team2CustomBackColorActive}
-      setTeam1CustomBackColorActive={setTeam1CustomBackColorActive}
-      setTeam2CustomBackColorActive={setTeam2CustomBackColorActive}
+      setTeam1CustomColorActive={setTeam1CustomColorActive}
+      setTeam2CustomColorActive={setTeam2CustomColorActive}
       onClickTeam1CustomColorChangeButton={onClickTeam1CustomColorChangeButton}
       onClickTeam2CustomColorChangeButton={onClickTeam2CustomColorChangeButton}
-      setTeam1CustomBackColor={setTeam1CustomBackColor}
-      setTeam2CustomBackColor={setTeam2CustomBackColor}
+      setTeam1CustomColor={setTeam1CustomColor}
+      setTeam2CustomColor={setTeam2CustomColor}
       onClickTeam1ColorChoice={onClickTeam1ColorChoice}
       onClickTeam2ColorChoice={onClickTeam2ColorChoice}
-      team1ColorActive={team1ColorActive}
-      team2ColorActive={team2ColorActive}
-      setTeam1ColorActive={setTeam1ColorActive}
-      setTeam2ColorActive={setTeam2ColorActive}
-      setIsTeam1List={setIsTeam1List}
-      setIsTeam2List={setIsTeam2List}
-      team1InputActive={team1InputActive}
-      team2InputActive={team2InputActive}
-      setTeam1InputActive={setTeam1InputActive}
-      setTeam2InputActive={setTeam2InputActive}
     ></ScoreboardUI>
   );
 }

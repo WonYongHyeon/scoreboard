@@ -18,7 +18,7 @@ export default function ScoreboardUI(props) {
                 priority
               />
             </S.BTitleLogoWrapper>
-            <S.BTitle>{props.title}</S.BTitle>
+            <S.BTitle title={props.title}>{props.title}</S.BTitle>
           </S.BTitleWrapper>
           <S.BTeam1 boardColor={props.team1Color} fontColor={props.team1Font}>
             <S.BTeamLogeWrapper>
@@ -26,16 +26,13 @@ export default function ScoreboardUI(props) {
                 <Image
                   src={props.teamList[props.team1]["src"]}
                   alt={props.teamList[props.team1]}
-                  width={120}
-                  height={120}
-                  priority
+                  width={150}
+                  height={150}
                 />
               )}
             </S.BTeamLogeWrapper>
-            <S.BTeamName fontColor={props.team1Font}>
-              {Object.keys(props.teamList).indexOf(props.teamInput) > -1
-                ? props.teamList[props.team1]["name"]
-                : props.team1}
+            <S.BTeamName team={props.team1} fontColor={props.team1Font}>
+              {props.team1}
             </S.BTeamName>
             <S.BTeamScore fontColor={props.team1Font}>
               {props.team1Score}
@@ -45,14 +42,16 @@ export default function ScoreboardUI(props) {
             <S.BTeamScore fontColor={props.team2Font}>
               {props.team2Score}
             </S.BTeamScore>
-            <S.BTeamName fontColor={props.team2Font}>{props.team2}</S.BTeamName>
+            <S.BTeamName team={props.team2} fontColor={props.team2Font}>
+              {props.team2}
+            </S.BTeamName>
             <S.BTeamLogeWrapper>
               {Object.keys(props.teamList).indexOf(props.team2) === -1 || (
                 <Image
                   src={props.teamList[props.team2]["src"]}
                   alt={props.teamList[props.team2]}
-                  width={120}
-                  height={120}
+                  width={150}
+                  height={150}
                   priority
                 />
               )}
@@ -77,17 +76,15 @@ export default function ScoreboardUI(props) {
               <S.SelectTeam onClick={props.onClickTeam1ListActive}>
                 {props.team1}
               </S.SelectTeam>
-              {props.isTeam1List && (
+              {props.team1ListActive && (
                 <DropDown
-                  setIsTeamList={props.setIsTeam1List}
+                  setTeamListActive={props.setTeam1ListActive}
                   setTeamColor={props.setTeam1Color}
                   setTeamFont={props.setTeam1Font}
                   setTeam={props.setTeam1}
                   teamList={props.teamList}
                   teamInfo="home"
-                  setTeamCustomBackColorActive={
-                    props.setTeam1CustomBackColorActive
-                  }
+                  setTeamCustomColorActive={props.setTeam1CustomColorActive}
                   setTeamColorActive={props.setTeam1ColorActive}
                   setTeamInputActive={props.setTeam1InputActive}
                 />
@@ -106,7 +103,7 @@ export default function ScoreboardUI(props) {
             </div>
             <S.TeamScoreCustomColorWrapper>
               {props.team1ColorActive &&
-                (props.team1CustomBackColorActive ? (
+                (props.team1CustomColorActive ? (
                   <S.TeamCustomFontColorWrapper>
                     {props.team1Color === "#000000" ? (
                       <S.CustomColorFontWhiteBlack
@@ -175,17 +172,15 @@ export default function ScoreboardUI(props) {
                 </S.TeamInputWrapper>
               )}
             </div>
-            {props.isTeam2List && (
+            {props.team2ListActive && (
               <DropDown
-                setIsTeamList={props.setIsTeam2List}
+                setTeamListActive={props.setTeam2ListActive}
                 setTeamColor={props.setTeam2Color}
                 setTeamFont={props.setTeam2Font}
                 setTeam={props.setTeam2}
                 teamList={props.teamList}
                 teamInfo="away"
-                setTeamCustomBackColorActive={
-                  props.setTeam2CustomBackColorActive
-                }
+                setTeamCustomColorActive={props.setTeam2CustomColorActive}
                 setTeamColorActive={props.setTeam2ColorActive}
                 setTeamInputActive={props.setTeam2InputActive}
               />
@@ -193,7 +188,7 @@ export default function ScoreboardUI(props) {
 
             <S.TeamScoreCustomColorWrapper>
               {props.team2ColorActive &&
-                (props.team2CustomBackColorActive ? (
+                (props.team2CustomColorActive ? (
                   <S.TeamCustomFontColorWrapper>
                     {props.team2Color === "#000000" ? (
                       <S.CustomColorFontWhiteBlack

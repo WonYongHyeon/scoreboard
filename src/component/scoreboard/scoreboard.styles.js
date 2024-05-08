@@ -55,6 +55,7 @@ export const HandleBox = styled.div`
 
 export const SelectTeam = styled.div`
   min-width: 150px;
+  word-break: break-all;
   background-color: black;
   border: 2px solid white;
   margin: 10px;
@@ -360,7 +361,7 @@ export const BTitleLogoWrapper = styled.div`
 export const BTitle = styled.div`
   width: 480px;
   height: 70px;
-  font-size: 40px;
+  font-size: ${(props) => 650 / props.title.length + "px"};
   line-height: 70px;
   font-weight: bold;
   margin-top: 50px;
@@ -398,12 +399,15 @@ export const BTeamLogeWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 
 export const BTeamName = styled.div`
   width: 500px;
   height: 150px;
-  font-size: 70px;
+
+  font-size: ${(props) =>
+    props.team.length < 9 ? "70px" : 550 / props.team.length + "px"};
   line-height: 150px;
   text-align: center;
   font-weight: bold;

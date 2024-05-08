@@ -14,7 +14,7 @@ export default function DropDown(props) {
         props.setTeamFont("#ffffff");
       }
 
-      props.setTeamCustomBackColorActive(true);
+      props.setTeamCustomColorActive(true);
       props.setTeamColorActive(false);
     }
     // 팀 선택
@@ -27,11 +27,11 @@ export default function DropDown(props) {
         props.setTeamFont(props.teamList[team]["awayFont"]);
       }
 
-      props.setTeamCustomBackColorActive(false);
+      props.setTeamCustomColorActive(false);
       props.setTeamColorActive(true);
     }
 
-    props.setIsTeamList(false);
+    props.setTeamListActive(false);
     props.setTeam(event.target.innerText);
   };
 
