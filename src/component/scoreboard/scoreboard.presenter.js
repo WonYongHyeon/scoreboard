@@ -93,11 +93,12 @@ export default function ScoreboardUI(props) {
                 <S.TeamInputWrapper>
                   <S.TeamInput
                     onChange={props.onChangeTeam1}
-                    placeholder="직접입력"
+                    placeholder="직접입력 후 Enter"
+                    onKeyDown={(e) => props.team1InputEnter(e)}
                   ></S.TeamInput>
-                  <S.TeamInputSubmit onClick={props.onClickTeam1Button}>
+                  {/* <S.TeamInputSubmit onClick={props.onClickTeam1Button}>
                     적용
-                  </S.TeamInputSubmit>
+                  </S.TeamInputSubmit> */}
                 </S.TeamInputWrapper>
               )}
             </div>
@@ -164,11 +165,12 @@ export default function ScoreboardUI(props) {
                 <S.TeamInputWrapper>
                   <S.TeamInput
                     onChange={props.onChangeTeam2}
-                    placeholder="직접입력"
+                    placeholder="직접입력 후 Enter"
+                    onKeyDown={(e) => props.team2InputEnter(e)}
                   ></S.TeamInput>
-                  <S.TeamInputSubmit onClick={props.onClickTeam2Button}>
+                  {/* <S.TeamInputSubmit onClick={props.onClickTeam2Button}>
                     적용
-                  </S.TeamInputSubmit>
+                  </S.TeamInputSubmit> */}
                 </S.TeamInputWrapper>
               )}
             </div>

@@ -81,9 +81,9 @@ export const TeamInputWrapper = styled.div`
 
 export const TeamInput = styled.input`
   width: 300px;
-  height: 30px;
   border-radius: 5px;
   padding: 5px;
+  font-size: 20px;
 `;
 
 export const TeamInputSubmit = styled.button`

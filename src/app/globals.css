@@ -118,6 +118,7 @@ a {
   font-family: Maple, sans-serif;
 } */
 
-div {
+div,
+input {
   font-family: Maple, sans-serif;
 }

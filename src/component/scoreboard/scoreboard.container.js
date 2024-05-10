@@ -6,11 +6,11 @@ import _ from "lodash";
 const teamList = {
   노팅엄: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTE1/MDAxNzE0NjU5ODI5NDI3.-IcqnldClzNpTgB6jYwLUpK77qImR8dM_hKhRjfvxmUg.wRVSXT56ubRKV3PWaO-6bJL9n8RxZZo6bZ6Z7tERoJQg.PNG/%EB%85%B8%ED%8C%85%EC%97%84.png?type=w1600",
-    home: "#cf1e2a",
+    home: "#e12002",
     homeFont: "#ffffff",
     away: "#90d5ea",
     awayFont: "#000000",
-    third: "#334671",
+    third: "#181f36",
     thirdFont: "#ffffff",
   },
   뉴캐슬: {
@@ -24,7 +24,7 @@ const teamList = {
   },
   루턴타운: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMiAg/MDAxNzE0NjU5ODI5NDM1.qm4Rb9FKjdQ74ArRYnLYhFY7qer6V9V0PcjXH4a7tiMg.Ibku1uOqGs4rHUYX7b7Qq7v849L8-yfFksLVHTywVpwg.PNG/%EB%A3%A8%ED%84%B4%ED%83%80%EC%9A%B4.png?type=w1600",
-    home: "#ff7900",
+    home: "#fc6e32",
     homeFont: "#000000",
     away: "#dcdcdc",
     awayFont: "#000000",
@@ -33,7 +33,7 @@ const teamList = {
   },
   리버풀: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMiAg/MDAxNzE0NjU5ODI5NDM1.FuSG67yVuqIaWBtTX5_PTmgTirbRDPY8ClEOZ701TBIg.W5plEypS2rZPKGpRQLx9Zhe90znTEalcSDFudZ9lA_Ig.PNG/%EB%A6%AC%EB%B2%84%ED%92%80.png?type=w1600",
-    home: "#d41e24",
+    home: "#b1171c",
     homeFont: "#ffffff",
     away: "#16ac6c",
     awayFont: "#000000",
@@ -42,11 +42,11 @@ const teamList = {
   },
   맨시티: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTQg/MDAxNzE0NjU5ODI5NDM2.lKKSvhhU92I9QdlnITXIm7t61CxGMCCbCvBEfJQd1G0g.-XUyox8aIhfMj_yB5KgSlet_EFC2DhEHGn6vrmAZNwIg.PNG/%EB%A7%A8%EC%8B%9C%ED%8B%B0.png?type=w1600",
-    home: "#a6cce5",
+    home: "#a8d2ea",
     homeFont: "#000000",
-    away: "#dcdcdc",
+    away: "#eaebeb",
     awayFont: "#000000",
-    third: "#1e282c",
+    third: "#142024",
     thirdFont: "#ffffff",
   },
   맨유: {
@@ -55,7 +55,7 @@ const teamList = {
     homeFont: "#ffffff",
     away: "#344f4e",
     awayFont: "#ffffff",
-    third: "#dcdcdc",
+    third: "#e0e0e0",
     thirdFont: "#000000",
   },
   번리: {
@@ -78,7 +78,7 @@ const teamList = {
   },
   브라이튼: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjkz/MDAxNzE0NjU5ODI5NDM0.mpWx84-qKLeC59dJDriTEIEZEgR1EGvaeEFKws77W8kg.I9_MC5YIqxWtZBr3Aet53qkRcsOM5DLXwY8cVTKcTU0g.PNG/%EB%B8%8C%EB%9D%BC%EC%9D%B4%ED%84%B4.png?type=w1600",
-    home: "#005daa",
+    home: "#0e30f2",
     homeFont: "#ffffff",
     away: "#02cf5d",
     awayFont: "#000000",
@@ -134,14 +134,14 @@ const teamList = {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTcw/MDAxNzE0NjU5ODI5NDM1.iBB-FAU-y8cH_TWYBiwu_6Dv6kXj7NHvMsVjdStudXYg.C-5b6sS1GcncSKN3jWpEnKhXW4x9fxjMuceaSOKNkuAg.PNG/%EC%9A%B8%EB%B2%84%ED%96%84%ED%8A%BC.png?type=w1600",
     home: "#fcb917",
     homeFont: "#000000",
-    away: "#dd1f00",
+    away: "#d11d08",
     awayFont: "#000000",
     third: "#78d0da",
     thirdFont: "#000000",
   },
   웨스트햄: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMTM2/MDAxNzE0NjU5ODI5NDM1.WFTGF96iquEZgrVtQlY2xFrR41wiTZR57JRe1x7O95cg.T1MwQNtx6BlqK8s3YdP450EuZ-jFt0VSmCl5v4r6puIg.PNG/%EC%9B%A8%EC%8A%A4%ED%8A%B8%ED%96%84.png?type=w1600",
-    home: "#7d2c3b",
+    home: "#6d0a10",
     homeFont: "#ffffff",
     away: "#dcdcdc",
     awayFont: "#000000",
@@ -150,7 +150,7 @@ const teamList = {
   },
   첼시: {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjY5/MDAxNzE0NjU5ODI5NDM1.06hp-sjqCS_nPZrA3y5gs9krCiISGkjm0riZ4tIM0Ecg.XGKujvSSAh20JA8o3zQPN2XxSRdwTtd91bHIIobOf_0g.PNG/%EC%B2%BC%EC%8B%9C.png?type=w1600",
-    home: "#034694",
+    home: "#0225c6",
     homeFont: "#ffffff",
     away: "#1f2d41",
     awayFont: "#ffffff",
@@ -159,7 +159,7 @@ const teamList = {
   },
   "C.팰리스": {
     src: "https://cafeptthumb-phinf.pstatic.net/MjAyNDA1MDJfMjM3/MDAxNzE0NjU5ODI5NDM1.3eGEz-vEo7gnCWOwrpX8xISRA8mHBVN9y-d0OeTaeMIg.XpHFJQIukxmiL-KPoZQRNK2tiLatK48dkZmCf09D56gg.PNG/%ED%81%AC%ED%8C%B0.png?type=w1600",
-    home: "#1a458f",
+    home: "#022b83",
     homeFont: "#ffffff",
     away: "#dcdcdc",
     awayFont: "#000000",
@@ -188,7 +188,8 @@ const teamList = {
 
 export default function Scoreboard() {
   const [title, setTitle] = useState("23-24 EPL 37R");
-  const [teamInput, setTeamInput] = useState("");
+  const [teamInput1, setTeamInput1] = useState("");
+  const [teamInput2, setTeamInput2] = useState("");
   const [chromakeyColor, setChromakeyColor] = useState("#00ff00");
 
   const [team1, setTeam1] = useState("토트넘");
@@ -268,28 +269,41 @@ export default function Scoreboard() {
 
   /** 팀1 직접입력 체인지 함수 */
   const onChangeTeam1 = (event) => {
-    getDebounceTeam(event.target.value);
+    setTeamInput1(event.target.value);
   };
+
   /** 팀2 직접입력 체인지 함수 */
   const onChangeTeam2 = (event) => {
-    getDebounceTeam(event.target.value);
+    setTeamInput2(event.target.value);
   };
-  const getDebounceTeam = _.debounce((input) => {
-    setTeamInput(input);
-  }, 200);
+
+  /** 팀1 입력 후 엔터 함수 */
+  const team1InputEnter = (e) => {
+    if (e.key === "Enter") {
+      onClickTeam1Button();
+    }
+  };
+  /** 팀2 입력 후 엔터 함수 */
+  const team2InputEnter = (e) => {
+    if (e.key === "Enter") {
+      onClickTeam2Button();
+    }
+  };
 
   /** 팀1 수동 입력후 적용 버튼 클릭 함수 */
   const onClickTeam1Button = () => {
-    const check = Object.keys(teamList).indexOf(teamInput) > -1;
+    if (teamInput1.length === 0) return;
 
-    setTeam1(teamInput);
+    const check = Object.keys(teamList).indexOf(teamInput1) > -1;
+
+    setTeam1(teamInput1);
     setTeam1ColorActive(true);
     setTeam1InputActive(false);
 
     if (check) {
       setTeam1CustomColorActive(false);
-      setTeam1Color(teamList[teamInput]["home"]);
-      setTeam1Font(teamList[teamInput]["homeFont"]);
+      setTeam1Color(teamList[teamInput1]["home"]);
+      setTeam1Font(teamList[teamInput1]["homeFont"]);
     } else {
       setTeam1CustomColorActive(true);
       setTeam1Color("#ffffff");
@@ -299,16 +313,18 @@ export default function Scoreboard() {
 
   /** 팀2 수동 입력후 적용 버튼 클릭 함수 */
   const onClickTeam2Button = () => {
-    const check = Object.keys(teamList).indexOf(teamInput) > -1;
+    if (teamInput2.length === 0) return;
 
-    setTeam2(teamInput);
+    const check = Object.keys(teamList).indexOf(teamInput2) > -1;
+
+    setTeam2(teamInput2);
     setTeam2ColorActive(true);
     setTeam2InputActive(false);
 
     if (check) {
       setTeam2CustomColorActive(false);
-      setTeam2Color(teamList[teamInput]["away"]);
-      setTeam2Font(teamList[teamInput]["awayFont"]);
+      setTeam2Color(teamList[teamInput2]["away"]);
+      setTeam2Font(teamList[teamInput2]["awayFont"]);
     } else {
       setTeam2CustomColorActive(true);
       setTeam2Color("#000000");
@@ -510,6 +526,8 @@ export default function Scoreboard() {
       setTeam2CustomColor={setTeam2CustomColor}
       onClickTeam1ColorChoice={onClickTeam1ColorChoice}
       onClickTeam2ColorChoice={onClickTeam2ColorChoice}
+      team1InputEnter={team1InputEnter}
+      team2InputEnter={team2InputEnter}
     ></ScoreboardUI>
   );
 }
