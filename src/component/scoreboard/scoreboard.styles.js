@@ -478,3 +478,7 @@ export const TeamCustomFontColorWrapper = styled.div`
   gap: 10px;
   height: 50px;
 `;
+
+export const BTimerSetting = styled.p`
+  width: 200px;
+`;

@@ -64,7 +64,11 @@ export default function ScoreboardUI(props) {
               <S.BTimerSec>{String(props.second).padStart(2, "0")}</S.BTimerSec>
             </S.BTimerWrapper>
           ) : (
-            <S.BTimerWrapper>{props.timeNow}</S.BTimerWrapper>
+            <S.BTimerWrapper>
+              <S.BTimerColon>
+                <S.BTimerSetting>{props.timeNow}</S.BTimerSetting>
+              </S.BTimerColon>
+            </S.BTimerWrapper>
           )}
         </S.BWrapper>
       </S.ScoreBoardAndColorPickerWrapper>
