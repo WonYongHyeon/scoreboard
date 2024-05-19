@@ -13,10 +13,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <meta
-        http-equiv="Content-Security-Policy"
-        content="upgrade-insecure-requests"
-      ></meta>
+      <head>
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
