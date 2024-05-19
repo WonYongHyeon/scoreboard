@@ -1,6 +1,6 @@
-import Scoreboard from "@/component/scoreboard/scoreboard.container";
 import "../app/globals.css";
+import Main from "@/component/main/main.container";
 
 export default function Home() {
-  return <Scoreboard></Scoreboard>;
+  return <Main></Main>;
 }
