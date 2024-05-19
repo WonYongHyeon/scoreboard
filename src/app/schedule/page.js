@@ -1,5 +1,10 @@
 import Schedule from "@/component/schedule/schedule.container";
+import { Suspense } from "react";
 
 export default function SchedulePage() {
-  return <Schedule />;
+  return (
+    <Suspense>
+      <Schedule></Schedule>
+    </Suspense>
+  );
 }
