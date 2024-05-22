@@ -1,46 +1,94 @@
 import styled from "@emotion/styled";
 
 export const Body = styled.div`
+  /* height: 100vh; */
   display: flex;
-  height: 1300px;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 50px;
-  padding: 50px;
-  background-color: #c9d5fe;
+  gap: 20px;
+  padding: 30px;
+  background-image: linear-gradient(to bottom, #effcfe, #c9d5fe);
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
-  gap: 50px;
-`;
-
-export const InputAndButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
 `;
 
-export const DayOfTheWeekWrapper = styled.div`
+export const InputAndButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
 `;
 
-export const Input = styled.input`
-  width: 300px;
-  padding: 10px 20px;
-  font-size: 25px;
+export const DayOfTheWeekWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
-export const TestButton = styled.div`
-  /* width: 500px; */
+export const DayOfTheWeekTitle = styled.div`
+  font-size: 40px;
+`;
+
+export const DateWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  height: 200px;
+`;
+export const DateInputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const DateDiv = styled.div`
+  font-size: 30px;
+  padding: 10px;
+`;
+export const DateInput = styled.input`
+  width: 200px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  border: 3px solid #333;
+`;
+
+export const ContentInput = styled.textarea`
+  width: 300px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 15px;
+  height: 100px;
+  border: 3px solid #333;
+`;
+
+export const Input = styled.textarea`
+  width: 200px;
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 3px solid #333;
+  height: 50px;
+`;
+
+export const UploadButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-left: 100px;
+  height: 100px;
+  width: 300px;
   font-size: 30px;
   cursor: pointer;
-  padding: 50px;
+  border: 3px solid #333;
+  border-radius: 20px;
+  background-color: #eee;
+  color: #333;
 
   :hover {
-    scale: 1.2;
+    background-color: #333;
+    color: #eee;
   }
 `;
 
@@ -53,12 +101,13 @@ export const CopyDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   /* padding: 50px; */
 `;
 
 export const CopyDivTitleWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 40px;
   width: 100%;
   padding: 20px;
   background-color: #333;
@@ -67,14 +116,16 @@ export const CopyDivTitleWrapper = styled.div`
 
 export const CopyDivTitle = styled.p`
   font-size: 40px;
+  line-height: 40px;
   padding-left: 10px;
   color: white;
 `;
 
-export const CopyDivDate = styled.p`
-  font-size: 20px;
-  padding-right: 10px;
-  line-height: 44px;
+export const CopyDivDate = styled.div`
+  display: flex;
+  align-items: end;
+  font-size: 25px;
+  text-align: end;
   color: white;
 `;
 
@@ -91,8 +142,6 @@ export const CheckDiv = styled.div`
   align-items: center;
   gap: 20px;
 `;
-
-export const WeekWrapper = styled.div``;
 
 export const ScheduleWrapper = styled.div`
   width: 200px;
@@ -111,13 +160,48 @@ export const ScheduleDay = styled.div`
   font-size: 30px;
   width: 100%;
   text-align: center;
+  font-weight: 300;
 `;
 
 export const Schedule = styled.div`
-  width: 100%;
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 174px;
+  height: 174px;
   border: 3px solid black;
   border-radius: 10px;
   padding: 10px;
-  font-size: 30px;
+  font-size: 28px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: pre-wrap;
+  overflow: hidden;
+  word-break: break-all;
+`;
+
+export const Img = styled.img`
+  width: 148px;
+  height: 148px;
+`;
+
+export const NoteDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: #ffff00;
+  transform: rotate(10deg);
+  width: 150px;
+  height: 150px;
+  top: 15px;
+  right: 14px;
+  z-index: 100;
+  border-radius: 1px;
+  box-shadow: -5px 5px 10px 2px #555500;
+  text-align: center;
+  vertical-align: middle;
+  white-space: pre-wrap;
+  overflow: hidden;
+  word-break: break-all;
 `;

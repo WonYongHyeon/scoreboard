@@ -4,16 +4,17 @@ import { useRouter, useSearchParams } from "next/navigation";
 import ScheduleUI from "./schedule.presenter";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import html2canvas from "html2canvas";
 import FormData from "form-data";
+import { toPng } from "html-to-image";
 
 export default function Schedule() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [accessToken, setAccessToken] = useState("");
-  const [title, setTitle] = useState({
-    title: "주간일정표",
-    date: "24.5.20 ~ 24.5.26",
-  });
+  const [startDate, setStartDate] = useState(new Date());
+  const [date, setDate] = useState("");
+  const [content, setContent] = useState("");
+  const [memo, setMemo] = useState("");
   const [inputs, setInputs] = useState({
     monMorning: "",
     monEvening: "",
@@ -30,7 +31,6 @@ export default function Schedule() {
     sunMorning: "",
     sunEvening: "",
   });
-  const router = useRouter();
 
   const onChangeInput = (event) => {
     const { id, value } = event.target;
@@ -41,24 +41,28 @@ export default function Schedule() {
     });
   };
 
-  const buttonClick = () => {
-    axios.get("http://3.36.75.114:3002/schedule/login").then((res) => {
-      // axios.get("http://localhost:3002/schedule/login").then((res) => {
-      router.push(res.data);
-    });
+  const onChangeContent = (event) => {
+    setContent(event.target.value);
+  };
+
+  const changeDate = (date) => {
+    setStartDate(date);
+  };
+
+  const onChangeMemo = (event) => {
+    setMemo(event.target.value);
   };
 
   const cafeUpload = () => {
-    // if (accessToken.length === 0) return;
-
     const target = document.getElementById("copy");
 
     if (!target) {
       return alert("결과 저장에 실패했습니다.");
     }
-    html2canvas(target).then((canvas) => {
+
+    toPng(document.getElementById("copy")).then(function (dataUrl) {
       // 이미 인코딩 된 데이터
-      const image = canvas.toDataURL("image/png").split(",")[1];
+      const image = dataUrl.split(",")[1];
 
       // 캔버스 이미지 디코딩
       const toBinaryIMG = Buffer.from(image, "base64").toString("binary");
@@ -72,16 +76,24 @@ export default function Schedule() {
       const u8arr = new Uint8Array(array);
       const file = new Blob([u8arr], { type: "image/png" });
 
+      const subject =
+        "주간일정표 " +
+        (date.start.length === 0 ? "xx.xx.xx" : date.start) +
+        " ~ " +
+        (date.end.length === 0 ? "xx.xx.xx" : date.end);
+
       // 전송할 formData 제작
+      console.log(accessToken);
       const formData = new FormData();
       formData.append("img", file);
-      //   formData.append("img", "token");
+      formData.append("subject", subject);
+      formData.append("content", content);
+      formData.append("accessToken", accessToken);
 
       axios
-        .post("http://3.36.75.114:3002/schedule/cafe", formData, {
-          // .post("http://localhost:3002/schedule/cafe", formData, {
+        .post("http://localhost:3002/schedule/cafe", formData, {
+          // .post("https://yhback.site/schedule/cafe", formData, {
           headers: {
-            Authorization: accessToken,
             "Content-Type": "multipart/form-data",
           },
           transformRequest: [
@@ -91,48 +103,97 @@ export default function Schedule() {
           ],
         })
         .then((res) => {
+          if (res.status === 200) alert("주간일정표 업로드 완료");
           console.log(res);
         });
-
-      alert("카페 업로드 완료");
     });
   };
 
+  const cafeLogin = () => {
+    axios.get("http://localhost:3002/schedule/login").then((res) => {
+      // axios.get("https://yhback.site/schedule/login").then((res) => {
+      router.push(res.data);
+    });
+  };
+
+  const preventClose = () => {
+    window.sessionStorage.removeItem("accessToken");
+    cafeLogin();
+  };
+
   useEffect(() => {
-    const accessToken = window.localStorage.getItem("accessToken");
-    const isAccessToken = accessToken === "undefined" ? true : false;
+    const code = searchParams.get("code");
+    const state = searchParams.get("state");
+    const token = window.sessionStorage.getItem("accessToken");
 
-    if (isAccessToken) {
-      const code = searchParams.get("code");
-      const state = searchParams.get("state");
-
-      if (!code || !state) return;
-
-      axios
-        .get(
-          "http://3.36.75.114:3002/schedule?code=" + code + "&state=" + state
-        )
-        // .get("http://localhost:3002/schedule?code=" + code + "&state=" + state)
-        .then((res) => {
-          console.log(res.data.access_token);
-          if (res.data.access_token) {
-            window.localStorage.setItem("accessToken", res.data.access_token);
-            setAccessToken(res.data.access_token);
-          }
-        });
-    } else {
-      setAccessToken(accessToken);
+    if (!code || !state) {
+      cafeLogin();
     }
 
+    if (token === "undefined" || !token) {
+      axios
+        .get("http://localhost:3002/schedule?code=" + code + "&state=" + state)
+        // .get("http://yhback.site/schedule?code=" + code + "&state=" + state)
+        .then((res) => {
+          const token = res.data.access_token;
+          if (token) {
+            setAccessToken(token);
+            window.sessionStorage.setItem("accessToken", token);
+          }
+        });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // 브라우저에 렌더링 시 한 번만 실행하는 코드
+  useEffect(() => {
+    (() => {
+      window.addEventListener("beforeunload", preventClose);
+    })();
+
+    return () => {
+      window.removeEventListener("beforeunload", preventClose);
+    };
+  });
+
+  useEffect(() => {
+    const startDay =
+      startDate.getFullYear() +
+      "." +
+      (startDate.getMonth() + 1) +
+      "." +
+      startDate.getDate();
+
+    const days = startDay.split(".");
+
+    const endDate = new Date(days[0], Number(days[1]) - 1, days[2]);
+    endDate.setDate(endDate.getDate() + 6);
+
+    const endDay =
+      endDate.getFullYear() +
+      "." +
+      (endDate.getMonth() + 1) +
+      "." +
+      endDate.getDate();
+
+    setDate(startDay + " ~ " + endDay);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startDate]);
 
   return (
     <ScheduleUI
       inputs={inputs}
-      buttonClick={buttonClick}
       cafeUpload={cafeUpload}
       onChangeInput={onChangeInput}
+      content={content}
+      onChangeContent={onChangeContent}
+      memo={memo}
+      onChangeMemo={onChangeMemo}
+      startDate={startDate}
+      setStartDate={setStartDate}
+      changeDate={changeDate}
+      date={date}
     ></ScheduleUI>
   );
 }

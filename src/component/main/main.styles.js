@@ -19,6 +19,7 @@ export const SelectBox = styled.div`
   line-height: 600px;
   border: 3px solid #333;
   border-radius: 100px;
+  cursor: pointer;
 
   :hover {
     color: white;

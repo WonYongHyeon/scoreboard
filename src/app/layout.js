@@ -5,20 +5,14 @@ import favicon from "./favicon.ico";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "해블린 스코어 보드",
-  description: "그러합니다. 넹",
+  title: "트리톤 - 해왕성 제1위성",
+  description: "해왕성을 기준으로 움직이는 제 1위성 트리톤입니다.",
   icon: favicon,
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <head>
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="upgrade-insecure-requests"
-        />
-      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
