@@ -15,6 +15,8 @@ export default function Schedule() {
   const [date, setDate] = useState("");
   const [content, setContent] = useState("");
   const [memo, setMemo] = useState("");
+  const [memoActive, setMemoActive] = useState(false);
+  const [memoStart, setMemoStart] = useState(false);
   const [inputs, setInputs] = useState({
     monMorning: "",
     monEvening: "",
@@ -51,6 +53,9 @@ export default function Schedule() {
 
   const onChangeMemo = (event) => {
     setMemo(event.target.value);
+
+    setMemoActive(!(event.target.value.length === 0));
+    setMemoStart(true);
   };
 
   const cafeUpload = () => {
@@ -76,14 +81,9 @@ export default function Schedule() {
       const u8arr = new Uint8Array(array);
       const file = new Blob([u8arr], { type: "image/png" });
 
-      const subject =
-        "주간일정표 " +
-        (date.start.length === 0 ? "xx.xx.xx" : date.start) +
-        " ~ " +
-        (date.end.length === 0 ? "xx.xx.xx" : date.end);
+      const subject = "주간일정표 " + date;
 
       // 전송할 formData 제작
-      console.log(accessToken);
       const formData = new FormData();
       formData.append("img", file);
       formData.append("subject", subject);
@@ -176,7 +176,7 @@ export default function Schedule() {
       "." +
       endDate.getDate();
 
-    setDate(startDay + " ~ " + endDay);
+    setDate(startDay.substr(2) + " ~ " + endDay.substr(2));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate]);
@@ -194,6 +194,8 @@ export default function Schedule() {
       setStartDate={setStartDate}
       changeDate={changeDate}
       date={date}
+      memoActive={memoActive}
+      memoStart={memoStart}
     ></ScheduleUI>
   );
 }

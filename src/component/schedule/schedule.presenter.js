@@ -137,14 +137,12 @@ export default function ScheduleUI(props) {
         </S.InputAndButtonWrapper>
       </S.Wrapper>
       <S.CopyDiv id="copy">
-        <S.NoteDiv>{props.memo}</S.NoteDiv>
+        {props.memoStart && (
+          <S.NoteDiv active={props.memoActive}>{props.memo}</S.NoteDiv>
+        )}
         <S.CopyDivTitleWrapper>
           <S.CopyDivTitle>주간 일정표</S.CopyDivTitle>
-          <S.CopyDivDate>
-            {/* {props.date.start.length === 0 ? "xx.xx.xx" : props.date.start} ~{" "}
-            {props.date.end.length === 0 ? "xx.xx.xx" : props.date.end} */}
-            {props.date}
-          </S.CopyDivDate>
+          <S.CopyDivDate>{props.date}</S.CopyDivDate>
         </S.CopyDivTitleWrapper>
         <S.CheckDiv>
           <S.ScheduleWrapper>

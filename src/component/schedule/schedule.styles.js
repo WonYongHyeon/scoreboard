@@ -1,9 +1,11 @@
+import { css, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const Body = styled.div`
-  /* height: 100vh; */
+  height: 1200px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 20px;
   padding: 30px;
   background-image: linear-gradient(to bottom, #effcfe, #c9d5fe);
@@ -12,19 +14,19 @@ export const Body = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 `;
 
 export const InputAndButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 30px;
 `;
 
 export const DayOfTheWeekWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 `;
 
 export const DayOfTheWeekTitle = styled.div`
@@ -77,12 +79,12 @@ export const UploadButton = styled.div`
   justify-content: center;
   margin: auto;
   margin-left: 100px;
-  height: 100px;
+  height: 80px;
   width: 300px;
   font-size: 30px;
   cursor: pointer;
   border: 3px solid #333;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #eee;
   color: #333;
 
@@ -185,6 +187,27 @@ export const Img = styled.img`
   height: 148px;
 `;
 
+const FadeIn = keyframes`
+  from{
+    opacity: 0;
+    right: -10px;
+  }
+  to {
+    opacity: 1;
+    right: 12px;
+  }
+`;
+const FadeOut = keyframes`
+  from{
+    opacity: 1;
+    right: 12px;
+  }
+  to {
+    opacity: 0;
+    right: -10px;
+  }
+`;
+
 export const NoteDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -195,13 +218,23 @@ export const NoteDiv = styled.div`
   width: 150px;
   height: 150px;
   top: 15px;
-  right: 14px;
+  right: 12px;
+  font-size: 19px;
   z-index: 100;
   border-radius: 1px;
-  box-shadow: -5px 5px 10px 2px #555500;
+  box-shadow: -4px 4px 5px 1px #555500;
   text-align: center;
   vertical-align: middle;
   white-space: pre-wrap;
   overflow: hidden;
   word-break: break-all;
+
+  ${(props) =>
+    props.active
+      ? css`
+          animation: ${FadeIn} 0.5s ease-in forwards;
+        `
+      : css`
+          animation: ${FadeOut} 0.5s ease-out forwards;
+        `}
 `;
