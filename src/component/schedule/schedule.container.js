@@ -250,7 +250,7 @@ export default function Schedule() {
     if (token === "undefined" || !token) {
       axios
         // .get("http://localhost:3002/schedule?code=" + code + "&state=" + state)
-        .get("http://yhback.site/schedule?code=" + code + "&state=" + state)
+        .get("https://yhback.site/schedule?code=" + code + "&state=" + state)
         .then((res) => {
           const token = res.data.access_token;
           if (token) {
