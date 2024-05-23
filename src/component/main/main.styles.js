@@ -8,22 +8,24 @@ export const Body = styled.div`
   justify-content: center;
   align-items: center;
   gap: 100px;
-  background-color: white;
+  /* background-color: white; */
+  background-image: linear-gradient(to bottom, #effcfe, #c9d5fe);
 `;
 
 export const SelectBox = styled.div`
-  width: 700px;
-  height: 600px;
+  width: 600px;
+  height: 500px;
   font-size: 90px;
   text-align: center;
-  line-height: 600px;
-  border: 3px solid #333;
+  line-height: 500px;
+  /* border: 3px solid #333; */
   border-radius: 100px;
   cursor: pointer;
+  background-color: white;
 
   :hover {
     color: white;
-    background-color: #c9d5fe;
+    background-color: #333;
     border: 0px;
   }
 `;

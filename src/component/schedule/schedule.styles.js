@@ -2,7 +2,7 @@ import { css, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const Body = styled.div`
-  height: 1200px;
+  /* height: 1200px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,8 +29,78 @@ export const DayOfTheWeekWrapper = styled.div`
   gap: 30px;
 `;
 
-export const DayOfTheWeekTitle = styled.div`
-  font-size: 40px;
+export const ModeWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  border-bottom: 3px solid #333;
+`;
+
+export const InsertMode = styled.div`
+  width: 250px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  :hover {
+    background-color: #aef;
+    color: #333;
+  }
+
+  ${(props) =>
+    props.mode === "insert"
+      ? css`
+          background-color: #333;
+          color: #eee;
+        `
+      : css`
+          background-color: none;
+          color: #333;
+        `}
+`;
+export const UpdateMode = styled.div`
+  width: 250px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  :hover {
+    background-color: #aef;
+    color: #333;
+  }
+
+  ${(props) =>
+    props.mode === "update"
+      ? css`
+          background-color: #333;
+          color: #eee;
+        `
+      : css`
+          background-color: none;
+          color: #333;
+        `}
+`;
+
+export const Question = styled.div`
+  margin-left: auto;
+  padding: 0px 30px 20px 0px;
+  font-size: 30px;
+  /* height: 100px; */
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  cursor: pointer;
+
+  :hover {
+    color: #c00;
+  }
 `;
 
 export const DateWrapper = styled.div`
@@ -80,7 +150,8 @@ export const UploadButton = styled.div`
   margin: auto;
   margin-left: 100px;
   height: 80px;
-  width: 300px;
+  /* width: 350px; */
+  padding: 0px 30px;
   font-size: 30px;
   cursor: pointer;
   border: 3px solid #333;

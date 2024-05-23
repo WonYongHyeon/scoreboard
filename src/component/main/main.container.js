@@ -12,10 +12,6 @@ export default function Main() {
   };
 
   const onClickSchedule = () => {
-    // axios.get("http://localhost:3002/schedule/login").then((res) => {
-    //   // axios.get("https://yhback.site/schedule/login").then((res) => {
-    //   router.push(res.data);
-    // });
     router.push("/schedule");
   };
 

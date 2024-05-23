@@ -8,7 +8,21 @@ export default function ScheduleUI(props) {
   return (
     <S.Body>
       <S.Wrapper>
-        <S.DayOfTheWeekTitle>일정 입력</S.DayOfTheWeekTitle>
+        <S.ModeWrapper>
+          <S.InsertMode
+            mode={props.mode}
+            onClick={() => props.onClickMode("insert")}
+          >
+            일정 입력
+          </S.InsertMode>
+          <S.UpdateMode
+            mode={props.mode}
+            onClick={() => props.onClickMode("update")}
+          >
+            일정 수정
+          </S.UpdateMode>
+          <S.Question onClick={props.onClickQuestion}>도움말</S.Question>
+        </S.ModeWrapper>
         <S.InputAndButtonWrapper>
           <S.DayOfTheWeekWrapper>
             <S.Input
@@ -123,15 +137,25 @@ export default function ScheduleUI(props) {
               />
             </S.DateInputWrapper>
             <S.DateInputWrapper>
-              <S.DateDiv>간단메모</S.DateDiv>
+              <S.DateDiv>메모</S.DateDiv>
               <S.ContentInput
                 value={props.memo}
                 onChange={props.onChangeMemo}
-                placeholder="메모"
+                placeholder="간단한 메모"
+              />
+            </S.DateInputWrapper>
+            <S.DateInputWrapper>
+              <S.DateDiv>본문 내용</S.DateDiv>
+              <S.ContentInput
+                value={props.content}
+                onChange={props.onChangeContent}
+                placeholder="본문 내용"
               />
             </S.DateInputWrapper>
             <S.UploadButton onClick={props.cafeUpload}>
-              네이버 카페 업로드
+              {props.mode === "insert"
+                ? "주간일정표 업로드"
+                : "주간일정표 수정본 업로드"}
             </S.UploadButton>
           </S.DateWrapper>
         </S.InputAndButtonWrapper>
