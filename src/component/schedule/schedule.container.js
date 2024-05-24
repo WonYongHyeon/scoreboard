@@ -197,7 +197,7 @@ export default function Schedule() {
 
           axios
             // .post(testServer + "schedule/cafe", formData, {
-            .post(server + "https://yhback.site/schedule/cafe", formData, {
+            .post(server + "schedule/cafe", formData, {
               headers: {
                 "Content-Type": "multipart/form-data",
               },
