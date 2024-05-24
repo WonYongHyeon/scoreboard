@@ -246,8 +246,8 @@ export default function Schedule() {
 
   /** 새로고침시 세션 스토리지의 액세스 토큰 삭제 및 재로그인 진행 */
   const preventClose = async () => {
-    await cafeLogin();
     window.sessionStorage.removeItem("accessToken");
+    await cafeLogin();
   };
 
   // 로그인 후 스트링쿼리의 code와 state 값으로 액세스토큰 얻어오기
@@ -272,7 +272,6 @@ export default function Schedule() {
           }
         });
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -281,7 +280,6 @@ export default function Schedule() {
     (() => {
       window.addEventListener("beforeunload", preventClose);
     })();
-
     return () => {
       window.removeEventListener("beforeunload", preventClose);
     };

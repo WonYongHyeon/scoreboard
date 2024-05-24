@@ -22,14 +22,22 @@ export const InputAndButtonWrapper = styled.div`
   overflow: hidden;
   align-content: flex-start;
   flex-direction: row;
-  /* justify-content: space-between; */
   gap: 30px;
   background-color: #999;
   padding: 30px;
   border-radius: 30px;
-  /* width: 100%; */
+`;
+
+export const DateWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   overflow: hidden;
   align-content: flex-start;
+  gap: 50px;
+  background-color: #999;
+  padding: 30px;
+  border-radius: 30px;
 `;
 
 export const DayOfTheWeekWrapper = styled.div`
@@ -112,17 +120,6 @@ export const Question = styled.div`
   }
 `;
 
-export const DateWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  flex-wrap: wrap;
-  overflow: hidden;
-  align-content: flex-start;
-  /* width: 100%; */
-  gap: 50px;
-  /* height: 200px; */
-`;
 export const DateInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -176,7 +173,6 @@ export const Input = styled.textarea`
 `;
 
 export const UploadButton = styled.div`
-  /* position: absolute; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -189,8 +185,6 @@ export const UploadButton = styled.div`
   border-radius: 10px;
   background-color: #333;
   color: #eee;
-  /* right: 40px;
-  top: 90px; */
 
   :hover {
     background-color: #eee;

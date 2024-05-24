@@ -123,42 +123,40 @@ export default function ScheduleUI(props) {
             />
           </S.DayOfTheWeekWrapper>
         </S.InputAndButtonWrapper>
-        <S.InputAndButtonWrapper>
-          <S.DateWrapper>
-            <S.DateInputWrapper>
-              <S.DateDiv>시작일</S.DateDiv>
-              <DatePicker
-                selected={props.startDate}
-                onChange={(date) => props.changeDate(date)}
-                shouldCloseOnSelect
-                dateFormat="YY.MM.dd"
-                style={{ width: "200px" }}
-                customInput={<DatePickerCustomInput />}
-              />
-            </S.DateInputWrapper>
-            <S.DateInputWrapper>
-              <S.DateDiv>메모</S.DateDiv>
-              <S.ContentInput
-                value={props.memo}
-                onChange={props.onChangeMemo}
-                placeholder="간단한 메모"
-              />
-            </S.DateInputWrapper>
-            <S.DateInputWrapper>
-              <S.DateDiv>본문 내용</S.DateDiv>
-              <S.ContentInput
-                value={props.content}
-                onChange={props.onChangeContent}
-                placeholder="본문 내용"
-              />
-            </S.DateInputWrapper>
-            <S.UploadButton onClick={props.cafeUpload}>
-              {props.mode === "insert"
-                ? "주간일정표 업로드"
-                : "주간일정표 수정본 업로드"}
-            </S.UploadButton>
-          </S.DateWrapper>
-        </S.InputAndButtonWrapper>
+        <S.DateWrapper>
+          <S.DateInputWrapper>
+            <S.DateDiv>시작일</S.DateDiv>
+            <DatePicker
+              selected={props.startDate}
+              onChange={(date) => props.changeDate(date)}
+              shouldCloseOnSelect
+              dateFormat="YY.MM.dd"
+              style={{ width: "200px" }}
+              customInput={<DatePickerCustomInput />}
+            />
+          </S.DateInputWrapper>
+          <S.DateInputWrapper>
+            <S.DateDiv>메모</S.DateDiv>
+            <S.ContentInput
+              value={props.memo}
+              onChange={props.onChangeMemo}
+              placeholder="간단한 메모"
+            />
+          </S.DateInputWrapper>
+          <S.DateInputWrapper>
+            <S.DateDiv>본문 내용</S.DateDiv>
+            <S.ContentInput
+              value={props.content}
+              onChange={props.onChangeContent}
+              placeholder="본문 내용"
+            />
+          </S.DateInputWrapper>
+          <S.UploadButton onClick={props.cafeUpload}>
+            {props.mode === "insert"
+              ? "주간일정표 업로드"
+              : "주간일정표 수정본 업로드"}
+          </S.UploadButton>
+        </S.DateWrapper>
       </S.Wrapper>
       <S.CopyDiv id="copy">
         {props.memoStart && (
