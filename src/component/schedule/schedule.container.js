@@ -81,7 +81,7 @@ export default function Schedule() {
       title: "도움말",
       html: `
       <div style="width: 100%; display: flex; justify-content: start; flex-direction: column;">
-
+      <p style="display: flex; margin-top: 20px; margin-bottom: 10px; font-size: 25px;">사용 방법</p>
       <p style="display: flex;">1. 일정 입력 / 일정 수정</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">상단의 탭을 선택하여 일정입력 / 일정수정 변경이 가능합니다.</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">일정입력 : 새로운 주간 일정표를 작성합니다.</p>
@@ -107,12 +107,18 @@ export default function Schedule() {
 
       <p style="display: flex;">6. 업로드</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">입력한 값들을 이미지화 시켜 카페에 업로드합니다.</p>
-      <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">업로드 실패 시 대부분은 새로고침하면 고쳐집니다.(대신 다시 작성...)</p>
+      
+      <p style="display: flex; margin-top: 20px; margin-bottom: 10px; font-size: 25px;">주의 사항</p>
+      <p style="display: flex; color: #999; margin-left: 5px;">새로고침하면 로그인이 풀립니다. (고치는 중)</p>
+      <p style="display: flex; color: #999; margin-left: 5px;">아래의 홈 바로가기를 통해 다시 접속해주세요.</p>
 
-      <p style="display: flex;"></p>
-      <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;"></p>
       </div>
       `,
+      showCancelButton: true,
+      confirmButtonText: "홈 바로가기",
+      cancelButtonText: "확인",
+    }).then((result) => {
+      if (result.isConfirmed) router.push("/");
     });
   };
 
@@ -224,17 +230,17 @@ export default function Schedule() {
   };
 
   /** 네이버 로그인 함수 */
-  const cafeLogin = () => {
-    // axios.get("http://localhost:3002/schedule/login").then((res) => {
+  const cafeLogin = async () => {
+    // await axios.get("http://localhost:3002/schedule/login").then((res) => {
     axios.get("https://yhback.site/schedule/login").then((res) => {
       router.push(res.data);
     });
   };
 
   /** 새로고침시 세션 스토리지의 액세스 토큰 삭제 및 재로그인 진행 */
-  const preventClose = () => {
+  const preventClose = async () => {
+    await cafeLogin();
     window.sessionStorage.removeItem("accessToken");
-    cafeLogin();
   };
 
   // 로그인 후 스트링쿼리의 code와 state 값으로 액세스토큰 얻어오기
@@ -247,7 +253,7 @@ export default function Schedule() {
       cafeLogin();
     }
 
-    if (token === "undefined" || !token) {
+    if (!token) {
       axios
         // .get("http://localhost:3002/schedule?code=" + code + "&state=" + state)
         .get("https://yhback.site/schedule?code=" + code + "&state=" + state)
@@ -259,6 +265,7 @@ export default function Schedule() {
           }
         });
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
