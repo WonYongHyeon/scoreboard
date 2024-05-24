@@ -66,12 +66,19 @@ export default function Schedule() {
       const memo = window.localStorage.getItem("memo");
       const content = window.localStorage.getItem("content");
 
-      setInputs(inputs);
-      setStartDate(new Date(startDate));
-      setMemo(memo);
-      setMemoStart(memo.length !== 0);
-      setMemoActive(memo.length !== 0);
-      setContent(content);
+      if (!inputs) {
+        Swal.fire({
+          icon: "warning",
+          title: "이전에 등록한 데이터가 없습니다.",
+        });
+      } else {
+        setInputs(inputs);
+        setStartDate(new Date(startDate));
+        setMemo(memo);
+        setMemoStart(memo.length !== 0);
+        setMemoActive(memo.length !== 0);
+        setContent(content);
+      }
     }
     setMode(mode);
   };

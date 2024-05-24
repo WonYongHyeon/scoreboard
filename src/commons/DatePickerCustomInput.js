@@ -18,14 +18,13 @@ const Button = styled.div`
   width: 200px;
   padding: 10px 30px;
   font-size: 20px;
-  color: #333;
-  border: 3px solid #333;
+  color: #eee;
   border-radius: 10px;
-  background-color: #eee;
+  background-color: #333;
   cursor: pointer;
 
   :hover {
-    color: #eee;
-    background-color: #333;
+    color: #333;
+    background-color: #eee;
   }
 `;

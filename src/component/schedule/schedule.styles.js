@@ -2,13 +2,11 @@ import { css, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const Body = styled.div`
-  /* height: 1200px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
   padding: 30px;
-  background-image: linear-gradient(to bottom, #effcfe, #c9d5fe);
 `;
 
 export const Wrapper = styled.div`
@@ -18,9 +16,20 @@ export const Wrapper = styled.div`
 `;
 
 export const InputAndButtonWrapper = styled.div`
+  position: relative;
+  flex-wrap: wrap;
   display: flex;
+  overflow: hidden;
+  align-content: flex-start;
   flex-direction: row;
+  /* justify-content: space-between; */
   gap: 30px;
+  background-color: #999;
+  padding: 30px;
+  border-radius: 30px;
+  /* width: 100%; */
+  overflow: hidden;
+  align-content: flex-start;
 `;
 
 export const DayOfTheWeekWrapper = styled.div`
@@ -32,7 +41,7 @@ export const DayOfTheWeekWrapper = styled.div`
 export const ModeWrapper = styled.div`
   display: flex;
   width: 100%;
-  border-bottom: 3px solid #333;
+  border-bottom: 3px solid #666;
 `;
 
 export const InsertMode = styled.div`
@@ -44,6 +53,7 @@ export const InsertMode = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border-radius: 20px 20px 0 0;
 
   :hover {
     background-color: #aef;
@@ -53,12 +63,12 @@ export const InsertMode = styled.div`
   ${(props) =>
     props.mode === "insert"
       ? css`
-          background-color: #333;
+          background-color: #666;
           color: #eee;
         `
       : css`
           background-color: none;
-          color: #333;
+          color: #eee;
         `}
 `;
 export const UpdateMode = styled.div`
@@ -70,6 +80,7 @@ export const UpdateMode = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border-radius: 20px 20px 0 0;
 
   :hover {
     background-color: #aef;
@@ -79,24 +90,22 @@ export const UpdateMode = styled.div`
   ${(props) =>
     props.mode === "update"
       ? css`
-          background-color: #333;
+          background-color: #666;
           color: #eee;
         `
       : css`
           background-color: none;
-          color: #333;
+          color: #eee;
         `}
 `;
 
 export const Question = styled.div`
   margin-left: auto;
-  padding: 0px 30px 20px 0px;
+  padding: 0 30px;
   font-size: 30px;
-  /* height: 100px; */
-  display: flex;
-  justify-content: center;
-  align-items: end;
+  margin-top: 50px;
   cursor: pointer;
+  color: #eee;
 
   :hover {
     color: #c00;
@@ -106,8 +115,13 @@ export const Question = styled.div`
 export const DateWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  position: relative;
+  flex-wrap: wrap;
+  overflow: hidden;
+  align-content: flex-start;
+  /* width: 100%; */
   gap: 50px;
-  height: 200px;
+  /* height: 200px; */
 `;
 export const DateInputWrapper = styled.div`
   display: flex;
@@ -129,53 +143,68 @@ export const ContentInput = styled.textarea`
   width: 300px;
   border-radius: 10px;
   padding: 10px 20px;
-  font-size: 15px;
+  font-size: 20px;
   height: 100px;
-  border: 3px solid #333;
+  border: 3px solid #eee;
+  background-color: #555;
+  color: #fff;
+
+  :focus {
+    outline: 2px solid yellow;
+  }
+  ::placeholder {
+    color: #bbb;
+  }
 `;
 
 export const Input = styled.textarea`
   width: 200px;
   padding: 5px 10px;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 10px;
-  border: 3px solid #333;
+  border: 2px solid #eee;
   height: 50px;
+  background-color: #555;
+  color: #fff;
+
+  :focus {
+    outline: 2px solid yellow;
+  }
+  ::placeholder {
+    color: #bbb;
+  }
 `;
 
 export const UploadButton = styled.div`
+  /* position: absolute; */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  margin-left: 100px;
   height: 80px;
-  /* width: 350px; */
+  width: 350px;
   padding: 0px 30px;
+  margin: auto;
   font-size: 30px;
   cursor: pointer;
-  border: 3px solid #333;
   border-radius: 10px;
-  background-color: #eee;
-  color: #333;
+  background-color: #333;
+  color: #eee;
+  /* right: 40px;
+  top: 90px; */
 
   :hover {
-    background-color: #333;
-    color: #eee;
+    background-color: #eee;
+    color: #333;
   }
 `;
 
 export const CopyDiv = styled.div`
   width: 1600px;
-  /* height: 600px; */
-  /* background-color: #99f; */
-  /* border-radius: 60px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  /* padding: 50px; */
 `;
 
 export const CopyDivTitleWrapper = styled.div`
@@ -204,12 +233,8 @@ export const CopyDivDate = styled.div`
 
 export const CheckDiv = styled.div`
   width: 100%;
-  /* height: 700px; */
   padding: 40px;
-  background: linear-gradient(to bottom, transparent 38px, #ddd 38px) 0 0 /
-      100vw 40px repeat-y,
-    linear-gradient(to right, transparent 38px, #ddd 38px) 0 0 / 40px 100vh
-      repeat-x white;
+  background-image: linear-gradient(-60deg, #8bafdf, #dda5a9);
   display: flex;
   justify-content: center;
   align-items: center;
