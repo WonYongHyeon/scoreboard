@@ -8,6 +8,9 @@ import FormData from "form-data";
 import { toPng } from "html-to-image";
 import Swal from "sweetalert2";
 
+const testServer = "http://localhost:3002/";
+const server = "https://yhback.site/";
+
 export default function Schedule() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -193,8 +196,8 @@ export default function Schedule() {
           formData.append("accessToken", accessToken);
 
           axios
-            // .post("http://localhost:3002/schedule/cafe", formData, {
-            .post("https://yhback.site/schedule/cafe", formData, {
+            // .post(testServer + "schedule/cafe", formData, {
+            .post(server + "https://yhback.site/schedule/cafe", formData, {
               headers: {
                 "Content-Type": "multipart/form-data",
               },
@@ -238,8 +241,8 @@ export default function Schedule() {
 
   /** 네이버 로그인 함수 */
   const cafeLogin = async () => {
-    // await axios.get("http://localhost:3002/schedule/login").then((res) => {
-    axios.get("https://yhback.site/schedule/login").then((res) => {
+    // await axios.get(testServer + "schedule/login").then((res) => {
+    axios.get(server + "schedule/login").then((res) => {
       router.push(res.data);
     });
   };
@@ -262,8 +265,8 @@ export default function Schedule() {
 
     if (!token) {
       axios
-        // .get("http://localhost:3002/schedule?code=" + code + "&state=" + state)
-        .get("https://yhback.site/schedule?code=" + code + "&state=" + state)
+        // .get(testServer + "schedule?code=" + code + "&state=" + state)
+        .get(server + "schedule?code=" + code + "&state=" + state)
         .then((res) => {
           const token = res.data.access_token;
           if (token) {
