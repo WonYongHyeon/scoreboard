@@ -1,7 +1,7 @@
 "use client"; // this is a client component
 
 import { useRouter, useSearchParams } from "next/navigation";
-import ScheduleUI from "./schedule.presenter";
+import Schedule2UI from "./schedule2.presenter";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import FormData from "form-data";
@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 const testServer = "http://localhost:3002/";
 const server = "https://yhback.site/";
 
-export default function Schedule() {
+export default function Schedule2() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [accessToken, setAccessToken] = useState("");
@@ -100,16 +100,14 @@ export default function Schedule() {
 
       <p style="display: flex;">2. 월요일에서 일요일까지 오전 / 오후 일정 입력</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">하단의 주간 일정표에 입력한 값이 자동으로 반영됩니다.</p>
-      <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">미입력시 미정 이미지, 휴뱅/휴방 입력시 휴방 이미지가 출력됩니다.</p>
 
       <p style="display: flex;">3. 시작일 선택</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">주간 일정표의 시작일(월요일)을 입력합니다.</p>
-      <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">종료일(일요일)이 자동으로 계산되어 주간 일정표에 입력됩니다.</p>
+      <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">종료일(일요일)이 자동으로 계산되어 주간 일정표에 반영됩니다.</p>
 
       <p style="display: flex;">4. 메모 입력</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">일정표에 짧은 메모가 가능합니다.(권장 5~6줄까지)</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">입력한 값은 주간 입력표의 오른쪽 상단에 메모지와 함께 입력됩니다.</p>
-
 
       <p style="display: flex;">5. 본문 입력</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">주간 일정표와 별개로 남기고 싶은 글이 있다면 입력해주세요.</p>
@@ -159,7 +157,7 @@ export default function Schedule() {
           return alert("결과 저장에 실패했습니다.");
         }
 
-        toPng(document.getElementById("copy")).then(function (dataUrl) {
+        toPng(target, { quality: 1 }).then(function (dataUrl) {
           // 이미 인코딩 된 데이터
           const image = dataUrl.split(",")[1];
 
@@ -315,7 +313,7 @@ export default function Schedule() {
   }, [startDate]);
 
   return (
-    <ScheduleUI
+    <Schedule2UI
       inputs={inputs}
       cafeUpload={cafeUpload}
       onChangeInput={onChangeInput}
@@ -332,6 +330,6 @@ export default function Schedule() {
       content={content}
       onChangeContent={onChangeContent}
       onClickQuestion={onClickQuestion}
-    ></ScheduleUI>
+    ></Schedule2UI>
   );
 }
