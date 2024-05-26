@@ -297,7 +297,7 @@ export const Schedule2 = styled.div`
 
 export const ScheduleDay = styled.div`
   position: absolute;
-  z-index: 100;
+  /* z-index: 100; */
   font-size: 19px;
   width: 45px;
   height: 45px;
