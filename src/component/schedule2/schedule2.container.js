@@ -8,8 +8,8 @@ import FormData from "form-data";
 import { toPng } from "html-to-image";
 import Swal from "sweetalert2";
 
-const testServer = "http://localhost:3002/";
-const server = "https://yhback.site/";
+// const server = "http://localhost:3002/";   // 테스트 전용 서버
+const server = "https://yhback.site/"; // 배포 전용 서버
 
 export default function Schedule2() {
   const router = useRouter();
@@ -194,8 +194,7 @@ export default function Schedule2() {
           formData.append("accessToken", accessToken);
 
           axios
-            .post(testServer + "schedule/cafe", formData, {
-              // .post(server + "schedule/cafe", formData, {
+            .post(server + "schedule/cafe", formData, {
               headers: {
                 "Content-Type": "multipart/form-data",
               },
@@ -239,8 +238,7 @@ export default function Schedule2() {
 
   /** 네이버 로그인 함수 */
   const cafeLogin = async () => {
-    await axios.get(testServer + "schedule/login").then((res) => {
-      // axios.get(server + "schedule/login").then((res) => {
+    await axios.get(server + "schedule/login").then((res) => {
       router.push(res.data);
     });
   };
@@ -263,8 +261,7 @@ export default function Schedule2() {
 
     if (!token) {
       axios
-        .get(testServer + "schedule?code=" + code + "&state=" + state)
-        // .get(server + "schedule?code=" + code + "&state=" + state)
+        .get(server + "schedule?code=" + code + "&state=" + state)
         .then((res) => {
           const token = res.data.access_token;
           if (token) {
