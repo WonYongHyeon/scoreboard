@@ -1,10 +1,10 @@
-import Schedule2 from "@/component/schedule2/schedule2.container";
+import Schedule from "@/component/schedule/schedule.container";
 import { Suspense } from "react";
 
 export default function SchedulePage() {
   return (
     <Suspense>
-      <Schedule2></Schedule2>
+      <Schedule></Schedule>
     </Suspense>
   );
 }

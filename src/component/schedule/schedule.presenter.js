@@ -2,25 +2,26 @@ import DatePickerCustomInput from "@/commons/DatePickerCustomInput";
 import * as S from "./schedule.styles";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-const None = "/none.png";
+import Schedule1 from "@/commons/ScheduleTable/schedule1/schedule";
+import Schedule2 from "@/commons/ScheduleTable/schedule2/schedule";
 
 export default function ScheduleUI(props) {
   return (
     <S.Body>
       <S.Wrapper>
         <S.ModeWrapper>
-          <S.InsertMode
-            mode={props.mode}
+          <S.ChangeMode
+            change={props.mode === "insert"}
             onClick={() => props.onClickMode("insert")}
           >
             일정 입력
-          </S.InsertMode>
-          <S.UpdateMode
-            mode={props.mode}
+          </S.ChangeMode>
+          <S.ChangeMode
+            change={props.mode === "update"}
             onClick={() => props.onClickMode("update")}
           >
             일정 수정
-          </S.UpdateMode>
+          </S.ChangeMode>
           <S.Question onClick={props.onClickQuestion}>도움말</S.Question>
         </S.ModeWrapper>
         <S.InputAndButtonWrapper>
@@ -158,321 +159,38 @@ export default function ScheduleUI(props) {
           </S.UploadButton>
         </S.DateWrapper>
       </S.Wrapper>
-      <S.CopyDiv id="copy">
-        {props.memoStart && (
-          <S.NoteDiv active={props.memoActive}>{props.memo}</S.NoteDiv>
+      <S.ModeWrapper>
+        <S.ChangeTable
+          change={props.copy === "copy1"}
+          onClick={() => props.onClickScheduleTable("copy1")}
+        >
+          1번
+        </S.ChangeTable>
+        <S.ChangeTable
+          change={props.copy === "copy2"}
+          onClick={() => props.onClickScheduleTable("copy2")}
+        >
+          2번
+        </S.ChangeTable>
+      </S.ModeWrapper>
+      <S.ScheduleTableWrapper id="copy">
+        {props.copy === "copy1" && (
+          <>
+            {props.memoStart && (
+              <S.NoteDiv1 active={props.memoActive}>{props.memo}</S.NoteDiv1>
+            )}
+            <Schedule1 date={props.date} inputs={props.inputs}></Schedule1>
+          </>
         )}
-        <S.CopyDivTitleWrapper>
-          <S.CopyDivTitle>주간 일정표</S.CopyDivTitle>
-          <S.CopyDivDate>{props.date}</S.CopyDivDate>
-        </S.CopyDivTitleWrapper>
-        <S.CheckDiv>
-          <S.ScheduleWrapper>
-            <S.ScheduleDay>Monday</S.ScheduleDay>
-            <S.Schedule>
-              {props.inputs.monMorning.length === 0 ? (
-                <S.Img
-                  src={None}
-                  alt="none"
-                  // width={148}
-                  // height={148}
-                />
-              ) : props.inputs.monMorning === "휴방" ||
-                props.inputs.monMorning === "휴뱅" ? (
-                <S.Img src="/rest.png" alt="none" />
-              ) : (
-                props.inputs.monMorning
-              )}
-            </S.Schedule>
-            <S.Schedule>
-              {props.inputs.monEvening.length === 0 ? (
-                <S.Img src="/none.png" alt="none" width={148} height={148} />
-              ) : props.inputs.monEvening === "휴방" ||
-                props.inputs.monEvening === "휴뱅" ? (
-                <S.Img src="/rest.png" alt="none" width={148} height={148} />
-              ) : (
-                props.inputs.monEvening
-              )}
-            </S.Schedule>
-          </S.ScheduleWrapper>
-          <S.ScheduleWrapper>
-            <S.ScheduleDay>Tuesday</S.ScheduleDay>
-            <S.Schedule>
-              {props.inputs.tueMorning.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.tueMorning === "휴방" ||
-                props.inputs.tueMorning === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.tueMorning
-              )}
-            </S.Schedule>
-            <S.Schedule>
-              {props.inputs.tueEvening.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.tueEvening === "휴방" ||
-                props.inputs.tueEvening === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.tueEvening
-              )}
-            </S.Schedule>
-          </S.ScheduleWrapper>
-          <S.ScheduleWrapper>
-            <S.ScheduleDay>Wednesday</S.ScheduleDay>
-            <S.Schedule>
-              {props.inputs.wedMorning.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.wedMorning === "휴방" ||
-                props.inputs.wedMorning === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.wedMorning
-              )}
-            </S.Schedule>
-            <S.Schedule>
-              {props.inputs.wedEvening.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.wedEvening === "휴방" ||
-                props.inputs.wedEvening === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.wedEvening
-              )}
-            </S.Schedule>
-          </S.ScheduleWrapper>
-          <S.ScheduleWrapper>
-            <S.ScheduleDay>Thursday</S.ScheduleDay>
-            <S.Schedule>
-              {props.inputs.thuMorning.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.thuMorning === "휴방" ||
-                props.inputs.thuMorning === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.thuMorning
-              )}
-            </S.Schedule>
-            <S.Schedule>
-              {props.inputs.thuEvening.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.thuEvening === "휴방" ||
-                props.inputs.thuEvening === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.thuEvening
-              )}
-            </S.Schedule>
-          </S.ScheduleWrapper>
-          <S.ScheduleWrapper>
-            <S.ScheduleDay>Friday</S.ScheduleDay>
-            <S.Schedule>
-              {props.inputs.friMorning.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.friMorning === "휴방" ||
-                props.inputs.friMorning === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.friMorning
-              )}
-            </S.Schedule>
-            <S.Schedule>
-              {props.inputs.friEvening.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.friEvening === "휴방" ||
-                props.inputs.friEvening === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.friEvening
-              )}
-            </S.Schedule>
-          </S.ScheduleWrapper>
-          <S.ScheduleWrapper>
-            <S.ScheduleDay>Saturday</S.ScheduleDay>
-            <S.Schedule>
-              {props.inputs.satMorning.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.satMorning === "휴방" ||
-                props.inputs.satMorning === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.satMorning
-              )}
-            </S.Schedule>
-            <S.Schedule>
-              {props.inputs.satEvening.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.satEvening === "휴방" ||
-                props.inputs.satEvening === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.satEvening
-              )}
-            </S.Schedule>
-          </S.ScheduleWrapper>
-          <S.ScheduleWrapper>
-            <S.ScheduleDay>Sunday</S.ScheduleDay>
-            <S.Schedule>
-              {props.inputs.sunMorning.length === 0 ? (
-                <S.Img
-                  src="/none.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : props.inputs.sunMorning === "휴방" ||
-                props.inputs.sunMorning === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.sunMorning
-              )}
-            </S.Schedule>
-            <S.Schedule>
-              {props.inputs.sunEvening.length === 0 ? (
-                <S.Img src="/none.png" alt="none" width={148} height={148} />
-              ) : props.inputs.sunEvening === "휴방" ||
-                props.inputs.sunEvening === "휴뱅" ? (
-                <S.Img
-                  src="/rest.png"
-                  alt="none"
-                  priority
-                  width={148}
-                  height={148}
-                />
-              ) : (
-                props.inputs.sunEvening
-              )}
-            </S.Schedule>
-          </S.ScheduleWrapper>
-        </S.CheckDiv>
-      </S.CopyDiv>
+        {props.copy === "copy2" && (
+          <>
+            {props.memoStart && (
+              <S.NoteDiv2 active={props.memoActive}>{props.memo}</S.NoteDiv2>
+            )}
+            <Schedule2 date={props.date} inputs={props.inputs}></Schedule2>
+          </>
+        )}
+      </S.ScheduleTableWrapper>
     </S.Body>
   );
 }

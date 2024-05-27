@@ -8,8 +8,8 @@ import FormData from "form-data";
 import { toPng } from "html-to-image";
 import Swal from "sweetalert2";
 
-const testServer = "http://localhost:3002/";
-const server = "https://yhback.site/";
+// const server = "http://localhost:3002/"; // 테스트 전용 서버
+const server = "https://yhback.site/"; // 배포 전용 서버
 
 export default function Schedule() {
   const router = useRouter();
@@ -22,6 +22,7 @@ export default function Schedule() {
   const [memoStart, setMemoStart] = useState(false);
   const [mode, setMode] = useState("insert");
   const [content, setContent] = useState("");
+  const [copy, setCopy] = useState("copy1");
   const [inputs, setInputs] = useState({
     monMorning: "",
     monEvening: "",
@@ -86,6 +87,10 @@ export default function Schedule() {
     setMode(mode);
   };
 
+  const onClickScheduleTable = (table) => {
+    setCopy(table);
+  };
+
   const onClickQuestion = () => {
     Swal.fire({
       title: "도움말",
@@ -100,16 +105,14 @@ export default function Schedule() {
 
       <p style="display: flex;">2. 월요일에서 일요일까지 오전 / 오후 일정 입력</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">하단의 주간 일정표에 입력한 값이 자동으로 반영됩니다.</p>
-      <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">미입력시 미정 이미지, 휴뱅/휴방 입력시 휴방 이미지가 출력됩니다.</p>
 
       <p style="display: flex;">3. 시작일 선택</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">주간 일정표의 시작일(월요일)을 입력합니다.</p>
-      <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">종료일(일요일)이 자동으로 계산되어 주간 일정표에 입력됩니다.</p>
+      <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">종료일(일요일)이 자동으로 계산되어 주간 일정표에 반영됩니다.</p>
 
       <p style="display: flex;">4. 메모 입력</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">일정표에 짧은 메모가 가능합니다.(권장 5~6줄까지)</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">입력한 값은 주간 입력표의 오른쪽 상단에 메모지와 함께 입력됩니다.</p>
-
 
       <p style="display: flex;">5. 본문 입력</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">주간 일정표와 별개로 남기고 싶은 글이 있다면 입력해주세요.</p>
@@ -119,6 +122,7 @@ export default function Schedule() {
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">입력한 값들을 이미지화 시켜 카페에 업로드합니다.</p>
       
       <p style="display: flex; margin-top: 20px; margin-bottom: 10px; font-size: 25px;">주의 사항</p>
+      <p style="display: flex; color: #999; margin-left: 5px; text-align: left; margin-bottom: 10px">크롬 확대/축소를 100%로 변경해주세요. 현재 화면에 보여지는 사이즈로 일정표가 저장됩니다. (권장 사이즈 100%)</p>
       <p style="display: flex; color: #999; margin-left: 5px;">새로고침하면 로그인이 풀립니다. (고치는 중)</p>
       <p style="display: flex; color: #999; margin-left: 5px;">아래의 홈 바로가기를 통해 다시 접속해주세요.</p>
 
@@ -159,7 +163,7 @@ export default function Schedule() {
           return alert("결과 저장에 실패했습니다.");
         }
 
-        toPng(document.getElementById("copy")).then(function (dataUrl) {
+        toPng(target).then(function (dataUrl) {
           // 이미 인코딩 된 데이터
           const image = dataUrl.split(",")[1];
 
@@ -196,8 +200,7 @@ export default function Schedule() {
           formData.append("accessToken", accessToken);
 
           axios
-            .post(testServer + "schedule/cafe", formData, {
-              // .post(server + "schedule/cafe", formData, {
+            .post(server + "schedule/cafe", formData, {
               headers: {
                 "Content-Type": "multipart/form-data",
               },
@@ -241,8 +244,7 @@ export default function Schedule() {
 
   /** 네이버 로그인 함수 */
   const cafeLogin = async () => {
-    await axios.get(testServer + "schedule/login").then((res) => {
-      // axios.get(server + "schedule/login").then((res) => {
+    await axios.get(server + "schedule/login").then((res) => {
       router.push(res.data);
     });
   };
@@ -265,8 +267,7 @@ export default function Schedule() {
 
     if (!token) {
       axios
-        .get(testServer + "schedule?code=" + code + "&state=" + state)
-        // .get(server + "schedule?code=" + code + "&state=" + state)
+        .get(server + "schedule?code=" + code + "&state=" + state)
         .then((res) => {
           const token = res.data.access_token;
           if (token) {
@@ -332,6 +333,8 @@ export default function Schedule() {
       content={content}
       onChangeContent={onChangeContent}
       onClickQuestion={onClickQuestion}
+      copy={copy}
+      onClickScheduleTable={onClickScheduleTable}
     ></ScheduleUI>
   );
 }

@@ -52,7 +52,7 @@ export const ModeWrapper = styled.div`
   border-bottom: 3px solid #666;
 `;
 
-export const InsertMode = styled.div`
+export const ChangeMode = styled.div`
   width: 250px;
   height: 100px;
   line-height: 100px;
@@ -62,6 +62,7 @@ export const InsertMode = styled.div`
   align-items: center;
   cursor: pointer;
   border-radius: 20px 20px 0 0;
+  color: #eee;
 
   :hover {
     background-color: #aef;
@@ -69,41 +70,12 @@ export const InsertMode = styled.div`
   }
 
   ${(props) =>
-    props.mode === "insert"
+    props.change
       ? css`
           background-color: #666;
-          color: #eee;
         `
       : css`
           background-color: none;
-          color: #eee;
-        `}
-`;
-export const UpdateMode = styled.div`
-  width: 250px;
-  height: 100px;
-  line-height: 100px;
-  font-size: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 20px 20px 0 0;
-
-  :hover {
-    background-color: #aef;
-    color: #333;
-  }
-
-  ${(props) =>
-    props.mode === "update"
-      ? css`
-          background-color: #666;
-          color: #eee;
-        `
-      : css`
-          background-color: none;
-          color: #eee;
         `}
 `;
 
@@ -192,91 +164,6 @@ export const UploadButton = styled.div`
   }
 `;
 
-export const CopyDiv = styled.div`
-  width: 1600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-`;
-
-export const CopyDivTitleWrapper = styled.div`
-  display: flex;
-  gap: 40px;
-  width: 100%;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-`;
-
-export const CopyDivTitle = styled.p`
-  font-size: 40px;
-  line-height: 40px;
-  padding-left: 10px;
-  color: white;
-`;
-
-export const CopyDivDate = styled.div`
-  display: flex;
-  align-items: end;
-  font-size: 25px;
-  text-align: end;
-  color: white;
-`;
-
-export const CheckDiv = styled.div`
-  width: 100%;
-  padding: 40px;
-  background-image: linear-gradient(-60deg, #8bafdf, #dda5a9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-`;
-
-export const ScheduleWrapper = styled.div`
-  width: 200px;
-  height: 500px;
-  border: 3px solid black;
-  border-radius: 10px;
-  padding: 20px 10px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
-`;
-
-export const ScheduleDay = styled.div`
-  font-size: 30px;
-  width: 100%;
-  text-align: center;
-  font-weight: 300;
-`;
-
-export const Schedule = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 174px;
-  height: 174px;
-  border: 3px solid black;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 28px;
-  text-align: center;
-  vertical-align: middle;
-  white-space: pre-wrap;
-  overflow: hidden;
-  word-break: break-all;
-`;
-
-export const Img = styled.img`
-  width: 148px;
-  height: 148px;
-`;
-
 const FadeIn = keyframes`
   from{
     opacity: 0;
@@ -298,22 +185,21 @@ const FadeOut = keyframes`
   }
 `;
 
-export const NoteDiv = styled.div`
+export const NoteDiv2 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   background-color: #ffff00;
   transform: rotate(10deg);
-  width: 150px;
-  height: 150px;
-  top: 15px;
+  width: 100px;
+  height: 100px;
+  top: 10px;
   right: 12px;
-  font-size: 19px;
+  font-size: 14px;
   z-index: 100;
-  border-radius: 1px;
-  box-shadow: -4px 4px 5px 1px #555500;
-  text-align: center;
+  border-radius: 2px;
+  box-shadow: -2px 2px 5px 2px #555500;
   vertical-align: middle;
   white-space: pre-wrap;
   overflow: hidden;
@@ -326,5 +212,67 @@ export const NoteDiv = styled.div`
         `
       : css`
           animation: ${FadeOut} 0.5s ease-out forwards;
+        `}
+`;
+
+export const NoteDiv1 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: #ffff00;
+  transform: rotate(10deg);
+  width: 120px;
+  height: 120px;
+  top: 10px;
+  right: 12px;
+  font-size: 14px;
+  z-index: 100;
+  border-radius: 2px;
+  box-shadow: -2px 2px 5px 2px #555500;
+  vertical-align: middle;
+  white-space: pre-wrap;
+  overflow: hidden;
+  word-break: break-all;
+
+  ${(props) =>
+    props.active
+      ? css`
+          animation: ${FadeIn} 0.5s ease-in forwards;
+        `
+      : css`
+          animation: ${FadeOut} 0.5s ease-out forwards;
+        `}
+`;
+
+export const ScheduleTableWrapper = styled.div`
+  position: relative;
+  width: 42vw;
+`;
+
+export const ChangeTable = styled.div`
+  width: 250px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 20px 20px 0 0;
+  color: #eee;
+
+  :hover {
+    background-color: #aef;
+    color: #333;
+  }
+
+  ${(props) =>
+    props.change
+      ? css`
+          background-color: #666;
+        `
+      : css`
+          background-color: none;
         `}
 `;
