@@ -4,6 +4,8 @@
   src: url("/public/Maplestory.otf") format("opentype");
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap");
+
 :root {
   --font-maple: "maple-font";
 }

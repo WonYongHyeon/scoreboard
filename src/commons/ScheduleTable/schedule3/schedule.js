@@ -1,0 +1,63 @@
+import * as S from "./styles";
+
+export default function Schedule3(props) {
+  return (
+    <S.CopyDiv>
+      <S.CopyDivTitleWrapper>
+        <S.CopyDivTitle>주간 일정표</S.CopyDivTitle>
+        <S.CopyDivDate>{props.date}</S.CopyDivDate>
+      </S.CopyDivTitleWrapper>
+      <S.BackImageDiv>
+        <S.ScheduleWrapper>
+          <S.ScheduleDay>월</S.ScheduleDay>
+          <S.ScheduleMorEveWrapper>
+            <S.ScheduleMor>{props.inputs.monMorning}</S.ScheduleMor>
+            <S.ScheduleEve>{props.inputs.monEvening}</S.ScheduleEve>
+          </S.ScheduleMorEveWrapper>
+        </S.ScheduleWrapper>
+        <S.ScheduleWrapper>
+          <S.ScheduleDay>화</S.ScheduleDay>
+          <S.ScheduleMorEveWrapper>
+            <S.ScheduleMor>{props.inputs.tueMorning}</S.ScheduleMor>
+            <S.ScheduleEve>{props.inputs.tueEvening}</S.ScheduleEve>
+          </S.ScheduleMorEveWrapper>
+        </S.ScheduleWrapper>
+        <S.ScheduleWrapper>
+          <S.ScheduleDay>수</S.ScheduleDay>
+          <S.ScheduleMorEveWrapper>
+            <S.ScheduleMor>{props.inputs.wedMorning}</S.ScheduleMor>
+            <S.ScheduleEve>{props.inputs.wedEvening}</S.ScheduleEve>
+          </S.ScheduleMorEveWrapper>
+        </S.ScheduleWrapper>
+        <S.ScheduleWrapper>
+          <S.ScheduleDay>목</S.ScheduleDay>
+          <S.ScheduleMorEveWrapper>
+            <S.ScheduleMor>{props.inputs.thuMorning}</S.ScheduleMor>
+            <S.ScheduleEve>{props.inputs.thuEvening}</S.ScheduleEve>
+          </S.ScheduleMorEveWrapper>
+        </S.ScheduleWrapper>
+        <S.ScheduleWrapper>
+          <S.ScheduleDay>금</S.ScheduleDay>
+          <S.ScheduleMorEveWrapper>
+            <S.ScheduleMor>{props.inputs.friMorning}</S.ScheduleMor>
+            <S.ScheduleEve>{props.inputs.friEvening}</S.ScheduleEve>
+          </S.ScheduleMorEveWrapper>
+        </S.ScheduleWrapper>
+        <S.ScheduleWrapper>
+          <S.ScheduleDay>토</S.ScheduleDay>
+          <S.ScheduleMorEveWrapper>
+            <S.ScheduleMor>{props.inputs.satMorning}</S.ScheduleMor>
+            <S.ScheduleEve>{props.inputs.satEvening}</S.ScheduleEve>
+          </S.ScheduleMorEveWrapper>
+        </S.ScheduleWrapper>
+        <S.ScheduleWrapper>
+          <S.ScheduleDay>일</S.ScheduleDay>
+          <S.ScheduleMorEveWrapper>
+            <S.ScheduleMor>{props.inputs.sunMorning}</S.ScheduleMor>
+            <S.ScheduleEve>{props.inputs.sunEvening}</S.ScheduleEve>
+          </S.ScheduleMorEveWrapper>
+        </S.ScheduleWrapper>
+      </S.BackImageDiv>
+    </S.CopyDiv>
+  );
+}

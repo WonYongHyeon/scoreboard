@@ -12,6 +12,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "axios": "^1.6.8",
+    "dom-to-image": "^2.6.0",
     "form-data": "^4.0.0",
     "fs": "^0.0.1-security",
     "html-to-image": "^1.11.11",

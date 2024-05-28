@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Schedule1 from "@/commons/ScheduleTable/schedule1/schedule";
 import Schedule2 from "@/commons/ScheduleTable/schedule2/schedule";
+import Schedule3 from "@/commons/ScheduleTable/schedule3/schedule";
 
 export default function ScheduleUI(props) {
   return (
@@ -172,23 +173,37 @@ export default function ScheduleUI(props) {
         >
           2번
         </S.ChangeTable>
+        <S.ChangeTable
+          change={props.copy === "copy3"}
+          onClick={() => props.onClickScheduleTable("copy3")}
+        >
+          3번
+        </S.ChangeTable>
       </S.ModeWrapper>
       <S.ScheduleTableWrapper id="copy">
         {props.copy === "copy1" && (
-          <>
+          <div id="copy1">
             {props.memoStart && (
               <S.NoteDiv1 active={props.memoActive}>{props.memo}</S.NoteDiv1>
             )}
             <Schedule1 date={props.date} inputs={props.inputs}></Schedule1>
-          </>
+          </div>
         )}
         {props.copy === "copy2" && (
-          <>
+          <div id="copy2">
             {props.memoStart && (
               <S.NoteDiv2 active={props.memoActive}>{props.memo}</S.NoteDiv2>
             )}
             <Schedule2 date={props.date} inputs={props.inputs}></Schedule2>
-          </>
+          </div>
+        )}
+        {props.copy === "copy3" && (
+          <div id="copy3">
+            {props.memoStart && (
+              <S.NoteDiv2 active={props.memoActive}>{props.memo}</S.NoteDiv2>
+            )}
+            <Schedule3 date={props.date} inputs={props.inputs}></Schedule3>
+          </div>
         )}
       </S.ScheduleTableWrapper>
     </S.Body>

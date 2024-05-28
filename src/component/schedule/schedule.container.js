@@ -5,11 +5,12 @@ import ScheduleUI from "./schedule.presenter";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import FormData from "form-data";
-import { toPng } from "html-to-image";
+import { toPng, toJpeg } from "html-to-image";
+import domtoimage from "dom-to-image";
 import Swal from "sweetalert2";
 
-// const server = "http://localhost:3002/"; // 테스트 전용 서버
-const server = "https://yhback.site/"; // 배포 전용 서버
+const server = "http://localhost:3002/"; // 테스트 전용 서버
+// const server = "https://yhback.site/"; // 배포 전용 서버
 
 export default function Schedule() {
   const router = useRouter();
@@ -96,36 +97,38 @@ export default function Schedule() {
       title: "도움말",
       html: `
       <div style="width: 100%; display: flex; justify-content: start; flex-direction: column;">
-      <p style="display: flex; margin-top: 20px; margin-bottom: 10px; font-size: 25px;">사용 방법</p>
-      <p style="display: flex;">1. 일정 입력 / 일정 수정</p>
+      <p style="display: flex; margin-top: 20px; font-size: 25px;">사용 방법</p>
+      <p style="display: flex; margin-top: 10px;">1. 일정 입력 / 일정 수정</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">상단의 탭을 선택하여 일정입력 / 일정수정 변경이 가능합니다.</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">일정입력 : 새로운 주간 일정표를 작성합니다.</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">일정수정 : 마지막으로 업로드한 주간 일정표 정보를 불러옵니다.</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 70px;">업로드 시, 제목에 [일정수정]이 붙습니다.</p>
 
-      <p style="display: flex;">2. 월요일에서 일요일까지 오전 / 오후 일정 입력</p>
+      <p style="display: flex; margin-top: 10px;">2. 월요일에서 일요일까지 오전 / 오후 일정 입력</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">하단의 주간 일정표에 입력한 값이 자동으로 반영됩니다.</p>
 
-      <p style="display: flex;">3. 시작일 선택</p>
+      <p style="display: flex; margin-top: 10px;">3. 시작일 선택</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">주간 일정표의 시작일(월요일)을 입력합니다.</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">종료일(일요일)이 자동으로 계산되어 주간 일정표에 반영됩니다.</p>
 
-      <p style="display: flex;">4. 메모 입력</p>
+      <p style="display: flex; margin-top: 10px;">4. 메모 입력</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">일정표에 짧은 메모가 가능합니다.(권장 5~6줄까지)</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">입력한 값은 주간 입력표의 오른쪽 상단에 메모지와 함께 입력됩니다.</p>
 
-      <p style="display: flex;">5. 본문 입력</p>
+      <p style="display: flex; margin-top: 10px;">5. 본문 입력</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">주간 일정표와 별개로 남기고 싶은 글이 있다면 입력해주세요.</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px; text-align: start">입력된 값은 카페 게시글의 주간 일정표 이미지 아래에 가운데 정렬하여 입력됩니다.</p>
 
-      <p style="display: flex;">6. 업로드</p>
+      <p style="display: flex; margin-top: 10px;">6. 업로드</p>
       <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">입력한 값들을 이미지화 시켜 카페에 업로드합니다.</p>
+
+      <p style="display: flex; margin-top: 10px;">7. 스케쥴 테이블 선택</p>
+      <p style="display: flex; font-size: 15px; color: #999; margin-left: 5px;">원하는 UI의 스케쥴을 선택해주세요.</p>
       
       <p style="display: flex; margin-top: 20px; margin-bottom: 10px; font-size: 25px;">주의 사항</p>
-      <p style="display: flex; color: #999; margin-left: 5px; text-align: left; margin-bottom: 10px">크롬 확대/축소를 100%로 변경해주세요. 현재 화면에 보여지는 사이즈로 일정표가 저장됩니다. (권장 사이즈 100%)</p>
-      <p style="display: flex; color: #999; margin-left: 5px;">새로고침하면 로그인이 풀립니다. (고치는 중)</p>
-      <p style="display: flex; color: #999; margin-left: 5px;">아래의 홈 바로가기를 통해 다시 접속해주세요.</p>
-
+      <p style="display: flex;">업로드 실패가 발생할 경우</p>
+      <p style="display: flex; color: #999; margin-left: 5px; text-align: start; font-size: 15px;">1. 너무 빨리 업로드를 다시 시도하였습니다. 잠시 후에 다시 시도해주세요.</p>
+      <p style="display: flex; color: #999; margin-left: 5px; text-align: start; font-size: 15px;">2. 로그인이 해제되었습니다. 아래의 홈으로 이동하여 다시 접속해주세요.</p>
       </div>
       `,
       showCancelButton: true,
@@ -155,87 +158,93 @@ export default function Schedule() {
       confirmButtonText: "업로드",
       cancelButtonText: "취소",
     }).then((result) => {
-      console.log(result.isConfirmed);
       if (result.isConfirmed) {
-        const target = document.getElementById("copy");
+        const target = document.getElementById(copy);
 
-        if (!target) {
-          return alert("결과 저장에 실패했습니다.");
-        }
+        domtoimage
+          .toPng(target, {
+            width: target.clientWidth * 4,
+            height: target.clientHeight * 4,
+            style: {
+              transformOrigin: "top left",
+              transform: "scale(4)",
+            },
+          })
+          .then(function (dataUrl) {
+            // toPng(target).then(function (dataUrl) {
 
-        toPng(target).then(function (dataUrl) {
-          // 이미 인코딩 된 데이터
-          const image = dataUrl.split(",")[1];
+            // 이미 인코딩 된 데이터
+            const image = dataUrl.split(",")[1];
 
-          // 캔버스 이미지 디코딩
-          const toBinaryIMG = Buffer.from(image, "base64").toString("binary");
+            // 캔버스 이미지 디코딩
+            const toBinaryIMG = Buffer.from(image, "base64").toString("binary");
 
-          // unicode로 변환
-          const array = [];
-          for (let i = 0; i < toBinaryIMG.length; i += 1) {
-            array.push(toBinaryIMG.charCodeAt(i));
-          }
+            // unicode로 변환
+            const array = [];
+            for (let i = 0; i < toBinaryIMG.length; i += 1) {
+              array.push(toBinaryIMG.charCodeAt(i));
+            }
 
-          const u8arr = new Uint8Array(array);
-          const file = new Blob([u8arr], { type: "image/png" });
+            const u8arr = new Uint8Array(array);
+            const file = new Blob([u8arr], { type: "image/png" });
 
-          const subject =
-            mode === "insert"
-              ? "주간일정표 " + date
-              : "[일정수정] 주간일정표 " + date;
+            const subject =
+              mode === "insert"
+                ? "주간일정표 " + date
+                : "[일정수정] 주간일정표 " + date;
 
-          const contentStart = `<div style='font-size: 20px; text-align: center; width: 100%;'><br>`;
-          const contentEnd = `</div>`;
+            const contentStart = `<div style='font-size: 20px; text-align: center; width: 100%;'><br>`;
+            const contentEnd = `</div>`;
 
-          // 전송할 formData 제작
-          const formData = new FormData();
-          formData.append("img", file);
-          formData.append("subject", subject);
-          formData.append(
-            "content",
-            content.length !== 0
-              ? contentStart + content.replaceAll(/\n/g, "<br>") + contentEnd
-              : " "
-          );
-          formData.append("accessToken", accessToken);
+            // 전송할 formData 제작
+            const formData = new FormData();
+            formData.append("img", file);
+            formData.append("subject", subject);
+            formData.append(
+              "content",
+              content.length !== 0
+                ? contentStart + content.replaceAll(/\n/g, "<br>") + contentEnd
+                : " "
+            );
+            formData.append("accessToken", accessToken);
 
-          axios
-            .post(server + "schedule/cafe", formData, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-              transformRequest: [
-                function () {
-                  return formData;
+            axios
+              .post(server + "schedule/cafe", formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data",
                 },
-              ],
-            })
-            .then((res) => {
-              console.log(res.status);
-              if (res.status === 200) {
-                Swal.fire({
-                  icon: "success",
-                  title: "업로드에 성공했습니다.",
-                });
-                window.localStorage.setItem("inputs", JSON.stringify(inputs));
-                window.localStorage.setItem("startDate", startDate);
-                window.localStorage.setItem("memo", memo);
-                window.localStorage.setItem("content", content);
-              } else {
+                transformRequest: [
+                  function () {
+                    return formData;
+                  },
+                ],
+              })
+              .then((res) => {
+                console.log(res.status);
+                if (res.status === 200) {
+                  Swal.fire({
+                    icon: "success",
+                    title: "업로드에 성공했습니다.",
+                  });
+                  window.localStorage.setItem("inputs", JSON.stringify(inputs));
+                  window.localStorage.setItem("startDate", startDate);
+                  window.localStorage.setItem("memo", memo);
+                  window.localStorage.setItem("content", content);
+                } else {
+                  Swal.fire({
+                    icon: "error",
+                    title: "업로드에 실패했습니다.",
+                  });
+                }
+              })
+              .catch((error) => {
+                console.log(error);
                 Swal.fire({
                   icon: "error",
                   title: "업로드에 실패했습니다.",
                 });
-              }
-            })
-            .catch((error) => {
-              console.log(error);
-              Swal.fire({
-                icon: "error",
-                title: "업로드에 실패했습니다.",
               });
-            });
-        });
+          });
         // result.isConfirmed = false
       } else {
       }

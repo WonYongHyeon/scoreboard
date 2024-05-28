@@ -213,6 +213,12 @@ export const NoteDiv2 = styled.div`
       : css`
           animation: ${FadeOut} 0.5s ease-out forwards;
         `}
+
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
 `;
 
 export const NoteDiv1 = styled.div`

@@ -9,7 +9,7 @@ export default function Schedule2(props) {
         <S.CopyDivTitle>주간 일정표</S.CopyDivTitle>
         <S.CopyDivDate>{props.date}</S.CopyDivDate>
       </S.CopyDivTitleWrapper>
-      <S.CheckDiv>
+      <S.BackImageDiv>
         <S.ScheduleWrapper>
           <S.ScheduleDay>MON</S.ScheduleDay>
           <S.Schedule>
@@ -171,7 +171,7 @@ export default function Schedule2(props) {
             )}
           </S.Schedule>
         </S.ScheduleWrapper>
-      </S.CheckDiv>
+      </S.BackImageDiv>
     </S.CopyDiv>
   );
 }

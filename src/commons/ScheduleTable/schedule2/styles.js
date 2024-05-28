@@ -2,8 +2,6 @@ import styled from "@emotion/styled";
 
 export const CopyDiv = styled.div`
   width: 42vw;
-  /* min-width: 800px; */
-  /* max-width: 850px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,8 +19,8 @@ export const CopyDivTitleWrapper = styled.div`
 `;
 
 export const CopyDivTitle = styled.p`
-  font-size: 40px;
-  line-height: 40px;
+  font-size: 30px;
+  line-height: 30px;
   padding-left: 10px;
   color: white;
 `;
@@ -35,7 +33,7 @@ export const CopyDivDate = styled.div`
   color: white;
 `;
 
-export const CheckDiv = styled.div`
+export const BackImageDiv = styled.div`
   width: 100%;
   height: 18vw;
   padding: 20px;
