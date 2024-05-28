@@ -9,8 +9,8 @@ import { toPng, toJpeg } from "html-to-image";
 import domtoimage from "dom-to-image";
 import Swal from "sweetalert2";
 
-const server = "http://localhost:3002/"; // 테스트 전용 서버
-// const server = "https://yhback.site/"; // 배포 전용 서버
+// const server = "http://localhost:3002/"; // 테스트 전용 서버
+const server = "https://yhback.site/"; // 배포 전용 서버
 
 export default function Schedule() {
   const router = useRouter();
